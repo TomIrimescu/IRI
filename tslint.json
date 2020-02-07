@@ -66,7 +66,12 @@
       "as-needed"
     ],
     "object-literal-sort-keys": false,
-    "ordered-imports": false,
+    "ordered-imports": [
+      true,
+      {
+        "import-sources-order": "lowercase-last"
+      }
+    ],
     "quotemark": [
       true,
       "single"
