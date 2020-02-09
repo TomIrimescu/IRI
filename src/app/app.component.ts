@@ -8,7 +8,7 @@ import {
                   This is irimescu.com
             </div>
             <br />
-            <i class="fa fa-shopping-cart p-8"></i>
+            <i class="fa fa-shopping-cart fa-3x p-8"></i>
             <br />
             <button class="btn">Test Button</button>`
 })
