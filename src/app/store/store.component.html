@@ -1,5 +1,7 @@
-<div class="flex text-white bg-gray-900 p-5 text-2xl">
+<div class="flex justify-between text-white bg-gray-900 p-5 text-2xl">
   <a>IRI STORE</a>
+    <button (click)="auth.login()" *ngIf="!auth.loggedIn" class="text-sm bg-blue-500 hover:bg-blue-700 p-3 py-0 rounded">LOGIN</button>
+    <button (click)="auth.logout()" *ngIf="auth.loggedIn" class="text-sm bg-blue-500 hover:bg-blue-700 p-3 py-0 rounded">LOGOUT</button>
 </div>
 <div class="flex">
   <div class="bg-blue-300 text-white p-4 w-1/4">
