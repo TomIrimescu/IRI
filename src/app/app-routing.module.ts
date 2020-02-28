@@ -6,6 +6,9 @@ import {
   Routes
 } from '@angular/router';
 import {
+  AdminComponent
+} from '@app/admin/admin.component';
+import {
   PageNotFoundComponent
 } from '@app/page-not-found/page-not-found.component';
 import {
@@ -16,9 +19,10 @@ import {
 } from '@app/store/store.component';
 
 const routes: Routes = [
-  { path: '', component: StoreComponent },
-  { path: 'profile', component: ProfileComponent },
-  { path: '', redirectTo: '/', pathMatch: 'full' },
+  { path: 'admin', component: AdminComponent },
+  { path: 'store', component: StoreComponent },
+  { path: 'profile', component: ProfileComponent, pathMatch: 'full' },
+  { path: '', redirectTo: '/store', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 ];
 

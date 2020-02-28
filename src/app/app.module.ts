@@ -4,7 +4,9 @@ import {
 import {
   BrowserModule
 } from '@angular/platform-browser';
-
+import {
+  AdminComponent
+} from '@app/admin/admin.component';
 import {
   AppRoutingModule
 } from '@app/app-routing.module';
@@ -22,19 +24,20 @@ import {
 } from '@app/store/store.module';
 
 @NgModule({
-   declarations: [
-      AppComponent,
-      ProfileComponent,
-      PageNotFoundComponent
-   ],
-   imports: [
-      BrowserModule,
-      AppRoutingModule,
-      StoreModule
-   ],
-   providers: [],
-   bootstrap: [
-      AppComponent
-   ]
+  declarations: [
+    AppComponent,
+    ProfileComponent,
+    PageNotFoundComponent,
+    AdminComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    StoreModule
+  ],
+  providers: [],
+  bootstrap: [
+    AppComponent
+  ]
 })
 export class AppModule { }

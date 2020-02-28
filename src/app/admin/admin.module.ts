@@ -14,8 +14,8 @@ import {
   ModelModule
 } from '@app/model/model.module';
 import {
-  StoreComponent
-} from '@app/store/store.component';
+  AdminComponent
+} from './admin.component';
 
 @NgModule({
   imports: [
@@ -23,8 +23,8 @@ import {
     BrowserModule,
     FormsModule,
     RouterModule],
-  declarations: [StoreComponent],
-  exports: [StoreComponent]
+  declarations: [AdminComponent],
+  exports: [AdminComponent]
 })
 
-export class StoreModule { }
+export class AdminModule { }
