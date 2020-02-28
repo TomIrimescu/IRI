@@ -12,19 +12,29 @@ import {
   AppComponent
 } from '@app/app.component';
 import {
+  PageNotFoundComponent
+} from '@app/page-not-found/page-not-found.component';
+import {
+  ProfileComponent
+} from '@app/profile/profile.component';
+import {
   StoreModule
 } from '@app/store/store.module';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    StoreModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+   declarations: [
+      AppComponent,
+      ProfileComponent,
+      PageNotFoundComponent
+   ],
+   imports: [
+      BrowserModule,
+      AppRoutingModule,
+      StoreModule
+   ],
+   providers: [],
+   bootstrap: [
+      AppComponent
+   ]
 })
 export class AppModule { }

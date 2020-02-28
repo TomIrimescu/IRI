@@ -4,8 +4,8 @@ import {
 
 @Component({
   selector: 'app-root',
-  template: '<app-store></app-store>'
+  template: '<router-outlet></router-outlet>'
 })
 export class AppComponent {
-  title = 'irimescu.com';
+
 }
