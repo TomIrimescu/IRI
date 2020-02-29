@@ -73,7 +73,8 @@
             "customWebpackConfig": {
               "path": "./webpack.config.js"
             },
-            "browserTarget": "IRI:build"
+            "browserTarget": "IRI:build",
+            "proxyConfig": "proxy.conf.json"
           },
           "configurations": {
             "production": {
