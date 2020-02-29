@@ -18,6 +18,9 @@ import {
   InterceptorService
 } from '@app/auth/interceptor/interceptor.service';
 import {
+  ExternalApiComponent
+} from '@app/external-api-test/external-api/external-api.component';
+import {
   PageNotFoundComponent
 } from '@app/page-not-found/page-not-found.component';
 import {
@@ -31,6 +34,7 @@ const routes: Routes = [
   { path: '', component: StoreComponent },
   { path: 'admin', component: AdminComponent, canActivate: [AuthGuard] },
   { path: 'profile', component: ProfileComponent, pathMatch: 'full', canActivate: [AuthGuard] },
+  { path: 'external-api', component: ExternalApiComponent, canActivate: [AuthGuard] },
   { path: '', redirectTo: '/', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 ];

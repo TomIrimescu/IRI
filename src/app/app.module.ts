@@ -1,4 +1,7 @@
 import {
+  HttpClientModule
+} from '@angular/common/http';
+import {
   NgModule
 } from '@angular/core';
 import {
@@ -14,6 +17,9 @@ import {
   AppComponent
 } from '@app/app.component';
 import {
+  ExternalApiComponent
+} from '@app/external-api-test/external-api/external-api.component';
+import {
   PageNotFoundComponent
 } from '@app/page-not-found/page-not-found.component';
 import {
@@ -28,11 +34,13 @@ import {
     AppComponent,
     ProfileComponent,
     PageNotFoundComponent,
-    AdminComponent
+    AdminComponent,
+    ExternalApiComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     StoreModule
   ],
   providers: [],
