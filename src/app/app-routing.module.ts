@@ -9,6 +9,9 @@ import {
   AdminComponent
 } from '@app/admin/admin.component';
 import {
+  AuthGuard
+} from '@app/auth/authguard/auth.guard';
+import {
   PageNotFoundComponent
 } from '@app/page-not-found/page-not-found.component';
 import {
@@ -19,10 +22,10 @@ import {
 } from '@app/store/store.component';
 
 const routes: Routes = [
+  { path: '', component: StoreComponent },
   { path: 'admin', component: AdminComponent },
-  { path: 'store', component: StoreComponent },
-  { path: 'profile', component: ProfileComponent, pathMatch: 'full' },
-  { path: '', redirectTo: '/store', pathMatch: 'full' },
+  { path: 'profile', component: ProfileComponent, pathMatch: 'full', canActivate: [AuthGuard] },
+  { path: '', redirectTo: '/', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 ];
 
