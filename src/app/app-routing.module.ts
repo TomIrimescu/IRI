@@ -1,4 +1,7 @@
 import {
+  HTTP_INTERCEPTORS
+} from '@angular/common/http';
+import {
   NgModule
 } from '@angular/core';
 import {
@@ -12,6 +15,9 @@ import {
   AuthGuard
 } from '@app/auth/authguard/auth.guard';
 import {
+  InterceptorService
+} from '@app/auth/interceptor/interceptor.service';
+import {
   PageNotFoundComponent
 } from '@app/page-not-found/page-not-found.component';
 import {
@@ -23,7 +29,7 @@ import {
 
 const routes: Routes = [
   { path: '', component: StoreComponent },
-  { path: 'admin', component: AdminComponent },
+  { path: 'admin', component: AdminComponent, canActivate: [AuthGuard] },
   { path: 'profile', component: ProfileComponent, pathMatch: 'full', canActivate: [AuthGuard] },
   { path: '', redirectTo: '/', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
@@ -31,6 +37,13 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: InterceptorService,
+      multi: true
+    }
+  ]
 })
 export class AppRoutingModule { }

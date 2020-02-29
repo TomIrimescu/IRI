@@ -1,7 +1,15 @@
-import { Component } from '@angular/core';
-import { AuthService } from '@app/auth/auth.service';
-import { Product } from '@app/model/product.model';
-import { ProductRepository } from '@app/model/product.repository';
+import {
+  Component
+} from '@angular/core';
+import {
+  AuthService
+} from '@app/auth/auth.service';
+import {
+  Product
+} from '@app/model/product.model';
+import {
+  ProductRepository
+} from '@app/model/product.repository';
 
 @Component({
   selector: 'app-store',
