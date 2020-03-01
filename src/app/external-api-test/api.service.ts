@@ -16,7 +16,7 @@ export class ApiService {
   constructor(private http: HttpClient) { }
 
   ping$(): Observable<any> {
-    return this.http.get('/api/external');
+    return this.http.get('/iri-store/products');
   }
 
 }
