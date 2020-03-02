@@ -1,5 +1,13 @@
-<button class="text-sm text-white p-5 bg-blue-500 hover:bg-blue-700 p-3 py-0 rounded" (click)="pingApi()">Ping IRI-API</button>
-
-<pre *ngIf="responseJson">
-<code>{{ responseJson | json }}</code>
-</pre>
+<div class="flex justify-center pt-6">
+  <button
+    class="text-sm text-white p-5 bg-blue-500 hover:bg-blue-700 p-3 py-0 rounded"
+    (click)="pingApi()"
+  >
+    Ping IRI-API
+  </button>
+</div>
+<div class="flex justify-center mt-6">
+  <pre *ngIf="responseJson" class="p-4">
+    <code>{{ responseJson | json }}</code>
+  </pre>
+</div>
