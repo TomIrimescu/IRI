@@ -5,7 +5,8 @@ import {
   NgModule
 } from '@angular/core';
 import {
-  BrowserModule
+  BrowserModule,
+  Title
 } from '@angular/platform-browser';
 import {
   AdminComponent
@@ -43,7 +44,9 @@ import {
     HttpClientModule,
     StoreModule
   ],
-  providers: [],
+  providers: [
+    Title
+  ],
   bootstrap: [
     AppComponent
   ]

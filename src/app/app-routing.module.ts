@@ -31,12 +31,12 @@ import {
 } from '@app/store/store.component';
 
 const routes: Routes = [
-  { path: '', component: StoreComponent },
-  { path: 'admin', component: AdminComponent, canActivate: [AuthGuard] },
-  { path: 'profile', component: ProfileComponent, pathMatch: 'full', canActivate: [AuthGuard] },
-  { path: 'external-api', component: ExternalApiComponent, canActivate: [AuthGuard] },
+  { path: '', component: StoreComponent, data: {title: 'IRI Store'} },
+  { path: 'admin', component: AdminComponent, canActivate: [AuthGuard], data: {title: 'Admin'} },
+  { path: 'profile', component: ProfileComponent, pathMatch: 'full', canActivate: [AuthGuard], data: {title: 'Profile'} },
+  { path: 'external-api', component: ExternalApiComponent, canActivate: [AuthGuard], data: {title: 'Ping IRI-API'} },
   { path: '', redirectTo: '/', pathMatch: 'full' },
-  { path: '**', component: PageNotFoundComponent }
+  { path: '**', component: PageNotFoundComponent, data: {title: 'Page Not Found'} }
 ];
 
 @NgModule({
