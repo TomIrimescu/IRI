@@ -1,7 +1,12 @@
 /* tslint:disable:no-unused-variable */
 
-import { TestBed, async, inject } from '@angular/core/testing';
-import { InterceptorService } from './interceptor.service';
+import {
+  inject,
+  TestBed
+} from '@angular/core/testing';
+import {
+  InterceptorService
+} from './interceptor.service';
 
 describe('Service: Interceptor', () => {
   beforeEach(() => {

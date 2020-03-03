@@ -23,13 +23,29 @@ import {
 
 const routes: Routes = [
   {
-    path: 'dashboard', component: AdminComponent, canActivate: [AuthGuard], data: { title: 'Admin' },
+    path: 'dashboard', component: AdminComponent,
+    canActivate: [AuthGuard],
+    data: { title: 'Admin' },
     children: [
-      { path: 'products/:mode/:id', component: ProductEditorComponent, data: { title: 'Product Editor' } },
-      { path: 'products/:mode', component: ProductEditorComponent, data: { title: 'Product Editor' } }, // FIX :mode
-      { path: 'products', component: ProductTableComponent, data: { title: 'Product Table' } },
-      { path: 'orders', component: OrderTableComponent, data: { title: 'Order Table' } },
-      { path: '**', redirectTo: 'products' }
+      {
+        path: 'products/:mode/:id', component: ProductEditorComponent,
+        data: { title: 'Admin Product Manager' }
+      },
+      {
+        path: 'products/:mode', component: ProductEditorComponent,
+        data: { title: 'Admin Product Manager' }
+      },
+      {
+        path: 'products', component: ProductTableComponent,
+        data: { title: 'Admin Products' }
+      },
+      {
+        path: 'orders', component: OrderTableComponent,
+        data: { title: 'Admin Orders' }
+      },
+      {
+        path: '**', redirectTo: 'products'
+      }
     ]
   }
 ];

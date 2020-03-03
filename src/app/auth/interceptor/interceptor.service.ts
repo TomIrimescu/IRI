@@ -18,7 +18,6 @@ import {
   catchError,
   mergeMap
 } from 'rxjs/operators';
-
 @Injectable({
   providedIn: 'root'
 })
