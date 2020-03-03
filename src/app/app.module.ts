@@ -9,8 +9,8 @@ import {
   Title
 } from '@angular/platform-browser';
 import {
-  AdminComponent
-} from '@app/admin/admin.component';
+  AdminModule
+} from '@app/admin/admin.module';
 import {
   AppRoutingModule
 } from '@app/app-routing.module';
@@ -35,14 +35,14 @@ import {
     AppComponent,
     ProfileComponent,
     PageNotFoundComponent,
-    AdminComponent,
     ExternalApiComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    StoreModule
+    StoreModule,
+    AdminModule
   ],
   providers: [
     Title

@@ -9,9 +9,6 @@ import {
   Routes
 } from '@angular/router';
 import {
-  AdminComponent
-} from '@app/admin/admin.component';
-import {
   AuthGuard
 } from '@app/auth/authguard/auth.guard';
 import {
@@ -31,12 +28,32 @@ import {
 } from '@app/store/store.component';
 
 const routes: Routes = [
-  { path: '', component: StoreComponent, data: {title: 'IRI Store'} },
-  { path: 'admin', component: AdminComponent, canActivate: [AuthGuard], data: {title: 'Admin'} },
-  { path: 'profile', component: ProfileComponent, pathMatch: 'full', canActivate: [AuthGuard], data: {title: 'Profile'} },
-  { path: 'external-api', component: ExternalApiComponent, canActivate: [AuthGuard], data: {title: 'Ping IRI-API'} },
-  { path: '', redirectTo: '/', pathMatch: 'full' },
-  { path: '**', component: PageNotFoundComponent, data: {title: 'Page Not Found'} }
+  {
+    path: '', component: StoreComponent,
+    data: { title: 'IRI Store' }
+  },
+  {
+    path: 'profile', component: ProfileComponent, pathMatch: 'full',
+    canActivate: [AuthGuard],
+    data: { title: 'Profile' }
+  },
+  {
+    path: 'external-api', component: ExternalApiComponent,
+    canActivate: [AuthGuard],
+    data: { title: 'Ping IRI-API' }
+  },
+  {
+    path: 'admin',
+    loadChildren: () => import('./admin/admin-routing.module').then(m => m.AdminRoutingModule),
+    canActivate: [AuthGuard]
+  },
+  {
+    path: '', redirectTo: '/', pathMatch: 'full'
+  },
+  {
+    path: '**', component: PageNotFoundComponent,
+    data: { title: 'Page Not Found' }
+  }
 ];
 
 @NgModule({
