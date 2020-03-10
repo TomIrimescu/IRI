@@ -13,7 +13,7 @@
           stroke-linecap="round"
           stroke-linejoin="round"
           stroke-width="2"
-          d="M4 6h16M4 12h16M4 18h7"
+          d="M4 6h16M4 12h16M4 18h16"
         />
       </svg>
     </button>
@@ -35,13 +35,15 @@
         </div>
       </div>
       <div class="ml-4 flex items-center md:ml-6">
-        <button
-          class="p-1 pl-2 pr-2 text-gray-400 rounded-full hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:shadow-outline focus:text-gray-500"
+        <span class="sm:visible md:visible lg:visible invisible text-gray-400"
+          >Your cart: (empty)</span
         >
-          <span class="sm:visible md:visible lg:visible invisible"
-            >Your cart: (empty)</span
-          >
-          <i class="fas fa-shopping-cart pl-2"></i>
+        <button
+          class="p-1 text-gray-400 rounded-full hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:shadow-outline focus:text-gray-500"
+        >
+          <i
+            class="fas fa-shopping-cart p-2 pl-2 pr-2"
+          ></i>
         </button>
         <div class="ml-3 relative" x-data="{ open: false }">
           <div>
