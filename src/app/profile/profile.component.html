@@ -1,3 +1,7 @@
 <pre *ngIf="auth.userProfile$ | async as profile">
   <code>{{ profile | json }}</code>
+  <code>{{ profile.name | json }}</code>
+  <code>{{ profile.nickname | json }}</code>
+  <code>{{ profile.email | json }}</code>
+  <code>{{ profile.picture | json }}</code>
   </pre>

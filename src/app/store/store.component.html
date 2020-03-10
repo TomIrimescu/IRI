@@ -1,68 +1,140 @@
-<div class="flex justify-between text-white bg-gray-900 p-5 text-2xl">
-  <div class="justify-start">
-    <a class="cursor-pointer hover:text-blue-500">IRI STORE</a>
-  </div>
-  <div class="justify-end">
-    <a
-      routerLink="external-api"
-      *ngIf="auth.loggedIn"
-      class="text-base cursor-pointer hover:text-blue-500 mt-auto mb-auto pl-4 pr-3 mr-2"
-      >IRI-API</a
-    >
-    <a
-      routerLink="/profile"
-      *ngIf="auth.loggedIn"
-      class="text-base cursor-pointer hover:text-blue-500 mt-auto mb-auto pl-2 pr-3 mr-2"
-      >PROFILE</a
-    >
-  </div>
-</div>
-<div class="flex">
-  <div class="flex flex-col bg-blue-300 text-white p-4 w-1/4 text-center p-10">
+<div class="flex flex-col flex-1 overflow-hidden">
+  <div class="relative z-10 flex-shrink-0 flex h-16 bg-white shadow">
     <button
-      class="text-lg bg-blue-500 hover:bg-blue-700 p-3 py-0 rounded w-48 h-16 mb-8"
+      class="px-4 border-r border-gray-200 text-gray-500 focus:outline-none focus:bg-gray-100 focus:text-gray-600 md:hidden"
     >
-      HOME
+      <svg
+        class="h-6 w-6"
+        stroke="currentColor"
+        fill="none"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M4 6h16M4 12h16M4 18h7"
+        />
+      </svg>
     </button>
-    <button
-      (click)="auth.login()"
-      *ngIf="!auth.loggedIn"
-      class="text-lg bg-red-500 hover:bg-red-700 p-3 py-0 rounded w-48 h-16 mb-8"
-      routerLink="admin/dashboard"
-    >
-      ADMIN
-    </button>
-    <button
-      (click)="auth.logout()"
-      *ngIf="auth.loggedIn"
-      class="text-lg bg-blue-500 hover:bg-blue-700 p-3 py-0 rounded w-48 h-16 mb-8"
-    >
-      LOGOUT
-    </button>
-  </div>
-  <div class="flex-auto p-4">
-    <div
-      *ngFor="let product of products"
-      class="border rounded-md overflow-hidden p-1 mb-2 bg-gray-100"
-    >
-      <div class="flex justify-between align-middle">
-        <h4 class="font-bold">
-          {{ product.name }}
-        </h4>
-        <button
-          class="bg-blue-500
-          hover:bg-blue-700
-          text-white
-          font-bold
-          px-4
-          rounded-full"
-        >
-          {{ product.price | currency: "USD":"symbol":"2.2-2" }}
-        </button>
+    <div class="flex-1 px-4 flex justify-between">
+      <div class="flex-1 flex">
+        <div class="w-full flex md:ml-0">
+          <!-- <label for="search_field" class="sr-only">Search</label> -->
+          <div class="relative w-full text-gray-400 focus-within:text-gray-600">
+            <div
+              class="absolute inset-y-0 left-0 flex items-center pointer-events-none"
+            >
+              <h1
+                class="text-sm md:text-xl lg:text-2xl font-semibold text-gray-900"
+              >
+                IRI-STORE
+              </h1>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="flex justify-start bg-white">
-        {{ product.description }}
+      <div class="ml-4 flex items-center md:ml-6">
+        <button
+          class="p-1 pl-2 pr-2 text-gray-400 rounded-full hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:shadow-outline focus:text-gray-500"
+        >
+          <span class="sm:visible md:visible lg:visible invisible"
+            >Your cart: (empty)</span
+          >
+          <i class="fas fa-shopping-cart pl-2"></i>
+        </button>
+        <div class="ml-3 relative" x-data="{ open: false }">
+          <div>
+            <button
+              class="max-w-xs flex items-center text-sm rounded-full focus:outline-none focus:shadow-outline"
+            >
+              <img
+                class="h-8 w-8 rounded-full"
+                src="https://s.gravatar.com/avatar/5f7b6ad8684ac5807b44282915d5917c?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fto.png"
+                alt=""
+              />
+            </button>
+          </div>
+          <div
+            x-show="open"
+            x-transition:enter="transition ease-out duration-100"
+            x-transition:enter-start="transform opacity-0 scale-95"
+            x-transition:enter-end="transform opacity-100 scale-100"
+            x-transition:leave="transition ease-in duration-75"
+            x-transition:leave-start="transform opacity-100 scale-100"
+            x-transition:leave-end="transform opacity-0 scale-95"
+            class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg"
+          >
+            <div class="py-1 rounded-md bg-white shadow-xs">
+              <a
+                routerLink="/profile"
+                *ngIf="auth.loggedIn"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition ease-in-out duration-150 cursor-pointer"
+              >
+                Profile</a
+              >
+              <a
+                routerLink="external-api"
+                *ngIf="auth.loggedIn"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition ease-in-out duration-150 cursor-pointer"
+                >IRI-API</a
+              >
+              <a
+                (click)="auth.login()"
+                *ngIf="!auth.loggedIn"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition ease-in-out duration-150 cursor-pointer"
+                >Sign in</a
+              >
+              <a
+                (click)="auth.logout()"
+                *ngIf="auth.loggedIn"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition ease-in-out duration-150 cursor-pointer"
+                >Sign out</a
+              >
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
+  <main
+    class="flex-1 relative z-0 overflow-y-auto py-6 focus:outline-none"
+    tabindex="0"
+    x-data
+    x-init="$el.focus()"
+  >
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+      <!-- Replace with your content -->
+      <div class="py-4">
+        <div class="border-4 border-dashed border-gray-200 rounded-lg h-full">
+          <div class="flex-auto p-4">
+            <div
+              *ngFor="let product of products"
+              class="border rounded-md overflow-hidden p-1 mb-2 bg-gray-100"
+            >
+              <div class="flex justify-between align-middle">
+                <h4 class="font-bold">
+                  {{ product.name }}
+                </h4>
+                <button
+                  class="bg-blue-500
+                hover:bg-blue-700
+                text-white
+                font-bold
+                px-4
+                rounded-full"
+                >
+                  {{ product.price | currency: "USD":"symbol":"2.2-2" }}
+                </button>
+              </div>
+              <div class="flex justify-start bg-white">
+                {{ product.description }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /End replace -->
+    </div>
+  </main>
 </div>
