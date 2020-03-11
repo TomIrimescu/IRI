@@ -13,9 +13,13 @@ import {
 
 @Component({
   selector: 'app-store',
-  templateUrl: 'store.component.html'
+  templateUrl: 'store.component.html',
+  styleUrls: ['./store.component.scss']
 })
 export class StoreComponent {
+
+  public links = false;
+
   constructor(
     private repository: ProductRepository,
     public auth: AuthService) { }
@@ -27,4 +31,13 @@ export class StoreComponent {
   get categories(): string[] {
     return this.repository.getCategories();
   }
+
+  linksToggleEvent() {
+    this.links = !this.links;
+  }
+
+  onClickedOutside(e: Event) {
+    this.links = false;
+  }
+
 }

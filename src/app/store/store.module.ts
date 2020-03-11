@@ -16,13 +16,18 @@ import {
 import {
   StoreComponent
 } from '@app/store/store.component';
+import {
+  ClickOutsideModule
+} from 'ng-click-outside';
 
 @NgModule({
   imports: [
     ModelModule,
     BrowserModule,
     FormsModule,
-    RouterModule],
+    RouterModule,
+    ClickOutsideModule
+  ],
   declarations: [StoreComponent],
   exports: [StoreComponent]
 })

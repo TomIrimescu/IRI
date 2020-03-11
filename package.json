@@ -23,6 +23,7 @@
     "@auth0/auth0-spa-js": "^1.6.4",
     "@fortawesome/fontawesome-free": "^5.12.1",
     "@tailwindcss/ui": "^0.1.2",
+    "ng-click-outside": "^6.0.0",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"

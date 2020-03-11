@@ -40,12 +40,10 @@
         <button
           class="p-1 text-gray-400 rounded-full hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:shadow-outline focus:text-gray-500"
         >
-          <i
-            class="fas fa-shopping-cart p-2 pl-2 pr-2"
-          ></i>
+          <i class="fas fa-shopping-cart p-2 pl-2 pr-2"></i>
         </button>
         <div class="ml-3 relative" x-data="{ open: false }">
-          <div>
+          <div (click)="linksToggleEvent()" (clickOutside)="onClickedOutside($event)">
             <button
               class="max-w-xs flex items-center text-sm rounded-full focus:outline-none focus:shadow-outline"
             >
@@ -57,14 +55,8 @@
             </button>
           </div>
           <div
-            x-show="open"
-            x-transition:enter="transition ease-out duration-100"
-            x-transition:enter-start="transform opacity-0 scale-95"
-            x-transition:enter-end="transform opacity-100 scale-100"
-            x-transition:leave="transition ease-in duration-75"
-            x-transition:leave-start="transform opacity-100 scale-100"
-            x-transition:leave-end="transform opacity-0 scale-95"
             class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg"
+            [ngClass]="links ? 'open' : 'closed'"
           >
             <div class="py-1 rounded-md bg-white shadow-xs">
               <a
