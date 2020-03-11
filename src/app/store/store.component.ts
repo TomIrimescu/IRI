@@ -19,6 +19,7 @@ import {
 export class StoreComponent {
 
   public links = false;
+  public sidedrawer = false;
 
   constructor(
     private repository: ProductRepository,
@@ -38,6 +39,10 @@ export class StoreComponent {
 
   onClickedOutside(e: Event) {
     this.links = false;
+  }
+
+  sideDrawerToggleEvent() {
+    this.sidedrawer = !this.sidedrawer;
   }
 
 }
