@@ -145,7 +145,7 @@
             </div>
           </div>
         </div>
-        <div class="ml-4 flex items-center md:ml-6">
+        <div class="ml-4 flex items-center md:ml-6" *ngIf="auth.userProfile$ | async as profile">
           <span class="sm:visible md:visible lg:visible invisible text-indigo-lighter"
             >Your cart: (empty)</span
           >
@@ -164,7 +164,7 @@
               >
                 <img
                   class="max-w-xs h-8 w-8 rounded-full"
-                  src="https://s.gravatar.com/avatar/5f7b6ad8684ac5807b44282915d5917c?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fto.png"
+                  src="{{ profile.picture}}"
                   alt=""
                 />
               </button>
@@ -179,7 +179,7 @@
                   *ngIf="auth.loggedIn"
                   class="block px-4 py-2 text-sm text-blue-dark hover:bg-gray-100 transition ease-in-out duration-150 cursor-pointer"
                 >
-                  Profile</a
+                  {{ profile.name }}</a
                 >
                 <a
                   routerLink="external-api"
