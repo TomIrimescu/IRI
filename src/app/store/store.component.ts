@@ -2,9 +2,6 @@ import {
   Component
 } from '@angular/core';
 import {
-  AuthService
-} from '@app/auth/auth.service';
-import {
   Product
 } from '@app/model/product.model';
 import {
@@ -22,8 +19,7 @@ export class StoreComponent {
   public sidedrawer = false;
 
   constructor(
-    private repository: ProductRepository,
-    public auth: AuthService) { }
+    private repository: ProductRepository) { }
 
   get products(): Product[] {
     return this.repository.getProducts();

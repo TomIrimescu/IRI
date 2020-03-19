@@ -15,16 +15,12 @@ import {
   ProductTableComponent
 } from '@app/admin/productTable/productTable.component';
 import {
-  AuthGuard
-} from '@app/auth/authguard/auth.guard';
-import {
   AdminComponent
 } from './admin.component';
 
 const routes: Routes = [
   {
     path: 'dashboard', component: AdminComponent,
-    canActivate: [AuthGuard],
     data: { title: 'Admin' },
     children: [
       {
@@ -53,6 +49,5 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
-  providers: [AuthGuard],
 })
 export class AdminRoutingModule { }

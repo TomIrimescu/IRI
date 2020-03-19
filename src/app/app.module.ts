@@ -24,16 +24,12 @@ import {
   PageNotFoundComponent
 } from '@app/page-not-found/page-not-found.component';
 import {
-  ProfileComponent
-} from '@app/profile/profile.component';
-import {
   StoreModule
 } from '@app/store/store.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProfileComponent,
     PageNotFoundComponent,
     ExternalApiComponent
   ],
