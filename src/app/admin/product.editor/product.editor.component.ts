@@ -5,8 +5,8 @@ import {
 
 @Component({
   selector: 'app-product-editor',
-  templateUrl: './productEditor.component.html',
-  styleUrls: ['./productEditor.component.scss']
+  templateUrl: './product.editor.component.html',
+  styleUrls: ['./product.editor.component.scss']
 })
 export class ProductEditorComponent implements OnInit {
 

@@ -5,8 +5,8 @@ import {
 
 @Component({
   selector: 'app-order-table',
-  templateUrl: './orderTable.component.html',
-  styleUrls: ['./orderTable.component.scss']
+  templateUrl: './order.table.component.html',
+  styleUrls: ['./order.table.component.scss']
 })
 export class OrderTableComponent implements OnInit {
 

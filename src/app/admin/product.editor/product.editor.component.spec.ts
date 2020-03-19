@@ -5,7 +5,7 @@ import {
   TestBed
 } from '@angular/core/testing';
 
-import { ProductEditorComponent } from './productEditor.component';
+import { ProductEditorComponent } from './product.editor.component';
 
 describe('ProductEditorComponent', () => {
   let component: ProductEditorComponent;

@@ -5,21 +5,21 @@ import {
   TestBed
 } from '@angular/core/testing';
 
-import { OrderTableComponent } from './orderTable.component';
+import { ProductTableComponent } from './product.table.component';
 
-describe('OrderTableComponent', () => {
-  let component: OrderTableComponent;
-  let fixture: ComponentFixture<OrderTableComponent>;
+describe('ProductTableComponent', () => {
+  let component: ProductTableComponent;
+  let fixture: ComponentFixture<ProductTableComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [OrderTableComponent]
+      declarations: [ProductTableComponent]
     })
       .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(OrderTableComponent);
+    fixture = TestBed.createComponent(ProductTableComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

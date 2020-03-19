@@ -5,8 +5,8 @@ import {
 
 @Component({
   selector: 'app-product-table',
-  templateUrl: './productTable.component.html',
-  styleUrls: ['./productTable.component.scss']
+  templateUrl: './product.table.component.html',
+  styleUrls: ['./product.table.component.scss']
 })
 export class ProductTableComponent implements OnInit {
 
