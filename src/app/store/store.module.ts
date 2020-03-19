@@ -14,6 +14,15 @@ import {
   ModelModule
 } from '@app/model/model.module';
 import {
+  CartDetailComponent
+} from '@app/store/cart.detail/cart.detail.component';
+import {
+  CartSummaryComponent
+} from '@app/store/cart.summary/cart.summary.component';
+import {
+  CheckoutComponent
+} from '@app/store/checkout/checkout.component';
+import {
   StoreComponent
 } from '@app/store/store.component';
 import {
@@ -28,7 +37,12 @@ import {
     RouterModule,
     ClickOutsideModule
   ],
-  declarations: [StoreComponent],
+  declarations: [
+    StoreComponent,
+    CartDetailComponent,
+    CartSummaryComponent,
+    CheckoutComponent
+  ],
   exports: [StoreComponent]
 })
 

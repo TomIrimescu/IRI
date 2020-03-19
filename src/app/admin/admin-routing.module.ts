@@ -19,9 +19,12 @@ import {
 } from './admin.component';
 
 const routes: Routes = [
+  // {
+  //   path: 'auth', component: AuthComponent,
+  //   data: { title: 'Log In' }
+  // },
   {
     path: 'dashboard', component: AdminComponent,
-    data: { title: 'Admin' },
     children: [
       {
         path: 'products/:mode/:id', component: ProductEditorComponent,
@@ -43,7 +46,10 @@ const routes: Routes = [
         path: '**', redirectTo: 'products'
       }
     ]
-  }
+  },
+  // {
+  //   path: '**', redirectTo: 'auth'
+  // }
 ];
 
 @NgModule({

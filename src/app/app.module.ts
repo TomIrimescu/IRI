@@ -21,16 +21,12 @@ import {
   ExternalApiComponent
 } from '@app/external-api-test/external-api/external-api.component';
 import {
-  PageNotFoundComponent
-} from '@app/page-not-found/page-not-found.component';
-import {
   StoreModule
 } from '@app/store/store.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PageNotFoundComponent,
     ExternalApiComponent
   ],
   imports: [

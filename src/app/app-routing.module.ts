@@ -9,16 +9,27 @@ import {
   ExternalApiComponent
 } from '@app/external-api-test/external-api/external-api.component';
 import {
-  PageNotFoundComponent
-} from '@app/page-not-found/page-not-found.component';
+  CartDetailComponent
+} from '@app/store/cart.detail/cart.detail.component';
+import {
+  CheckoutComponent
+} from '@app/store/checkout/checkout.component';
 import {
   StoreComponent
 } from '@app/store/store.component';
 
 const routes: Routes = [
   {
-    path: '', component: StoreComponent,
+    path: 'store', component: StoreComponent,
     data: { title: 'IRI Store' }
+  },
+  {
+    path: 'cart', component: CartDetailComponent,
+    data: { title: 'IRI Cart' }
+  },
+  {
+    path: 'checkout', component: CheckoutComponent,
+    data: { title: 'IRI Checkout' }
   },
   {
     path: 'external-api', component: ExternalApiComponent,
@@ -29,11 +40,7 @@ const routes: Routes = [
     loadChildren: () => import('./admin/admin-routing.module').then(m => m.AdminRoutingModule),
   },
   {
-    path: '', redirectTo: '/', pathMatch: 'full'
-  },
-  {
-    path: '**', component: PageNotFoundComponent,
-    data: { title: 'Page Not Found' }
+    path: '**', redirectTo: 'store', pathMatch: 'full'
   }
 ];
 
