@@ -6,9 +6,6 @@ import {
   Routes
 } from '@angular/router';
 import {
-  ExternalApiComponent
-} from '@app/external-api-test/external-api/external-api.component';
-import {
   CartDetailComponent
 } from '@app/store/cart.detail/cart.detail.component';
 import {
@@ -30,10 +27,6 @@ const routes: Routes = [
   {
     path: 'checkout', component: CheckoutComponent,
     data: { title: 'IRI Checkout' }
-  },
-  {
-    path: 'external-api', component: ExternalApiComponent,
-    data: { title: 'Ping IRI-API' }
   },
   {
     path: 'admin',

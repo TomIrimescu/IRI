@@ -18,16 +18,12 @@ import {
   AppComponent
 } from '@app/app.component';
 import {
-  ExternalApiComponent
-} from '@app/external-api-test/external-api/external-api.component';
-import {
   StoreModule
 } from '@app/store/store.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    ExternalApiComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,

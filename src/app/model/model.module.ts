@@ -7,9 +7,7 @@ import {
 import {
   ProductRepository
 } from '@app/model/product.repository';
-import {
-  StaticDataSource
-} from '@app/model/static.datasource';
+
 import {
   RestDataSource
 } from './rest.datasource';
@@ -18,7 +16,7 @@ import {
   imports: [HttpClientModule],
   providers: [
     ProductRepository,
-    { provide: StaticDataSource, useClass: RestDataSource }
+    RestDataSource
   ]
 })
 export class ModelModule { }

@@ -5,15 +5,15 @@ import {
   Product
 } from '@app/model/product.model';
 import {
-  StaticDataSource
-} from '@app/model/static.datasource';
+  RestDataSource
+} from '@app/model/rest.datasource';
 
 @Injectable()
 export class ProductRepository {
   private products: Product[] = [];
   private categories: string[] = [];
 
-  constructor(private dataSource: StaticDataSource) {
+  constructor(private dataSource: RestDataSource) {
 
     dataSource.getProducts().subscribe(data => {
       this.products = data;
@@ -24,7 +24,7 @@ export class ProductRepository {
 
   getProducts(category: string = null): Product[] {
     return this.products;
-      // .filter(p => category == null || category === p.category);
+    // .filter(p => category == null || category === p.category);
   }
 
   getProduct(id: number): Product {
