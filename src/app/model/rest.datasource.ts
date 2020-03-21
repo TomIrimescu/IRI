@@ -14,11 +14,11 @@ export class RestDataSource {
   authToken: string;
 
   constructor(private http: HttpClient) {
-    this.baseUrl = `${PROTOCOL}://${location.hostname}:${PORT}/iri-store/`;
+    this.baseUrl = `${PROTOCOL}://${location.hostname}:${PORT}/api/`;
   }
 
   getProducts(): Observable<Product[]> {
-    // return this.http.get<Product[]>('/iri-store/products');
+    // return this.http.get<Product[]>('/api/products');
     return this.http.get<Product[]>(this.baseUrl + 'products');
   }
   // saveOrder(order: Order): Observable<Order> {
@@ -27,7 +27,7 @@ export class RestDataSource {
 
   authenticate(user: string, pass: string): Observable<boolean> {
     return this.http.post<any>(this.baseUrl + 'login', {
-    // return this.http.post<any>('/iri-store/login', {
+    // return this.http.post<any>('/api/login', {
       name: user, password: pass
     }).pipe(map(response => {
       this.authToken = response.success ? response.token : null;
