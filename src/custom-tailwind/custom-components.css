@@ -1,12 +1,25 @@
-.btn {
-  @apply px-4;
+.sideBarButton {
+  @apply mt-12;
+  @apply flex;
+  @apply justify-center;
+  @apply px-2;
   @apply py-2;
-  @apply rounded;
-  @apply bg-indigo;
-  @apply text-white;
-  transition: 200ms;
+  @apply bg-blue;
+  @apply text-xl;
+  @apply leading-5;
+  @apply text-red-lighter;
+  @apply rounded-md;
+  @apply mx-auto;
+  transition: ease-in-out duration-150
 }
 
-.btn:hover {
-  @apply bg-indigo-dark;
+.sideBarButton:hover {
+  @apply text-gray-200;
+  @apply bg-red-dark;
+}
+
+.sideBarButton:focus {
+  @apply outline-none;
+  @apply text-gray-200;
+  @apply bg-blue;
 }
