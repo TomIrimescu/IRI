@@ -6,7 +6,7 @@ import {
 } from '@angular/core';
 import {
   ProductRepository
-} from '@app/model/product.repository';
+} from '@app/model/product/product.repository';
 
 import {
   AuthService

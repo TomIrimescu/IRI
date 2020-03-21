@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 // import { Cart } from './cart.model';
 // import { Order } from './order.model';
 import { map } from 'rxjs/operators';
-import { Product } from './product.model';
+import { Product } from './product/product.model';
 
 const PROTOCOL = 'http';
 const PORT = 3000;

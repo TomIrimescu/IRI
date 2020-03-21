@@ -3,10 +3,10 @@ import {
 } from '@angular/core';
 import {
   Product
-} from '@app/model/product.model';
+} from '@app/model/product/product.model';
 import {
   ProductRepository
-} from '@app/model/product.repository';
+} from '@app/model/product/product.repository';
 
 @Component({
   selector: 'app-store',
