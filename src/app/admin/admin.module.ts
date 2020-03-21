@@ -5,6 +5,9 @@ import {
   FormsModule
 } from '@angular/forms';
 import {
+  ReactiveFormsModule
+} from '@angular/forms';
+import {
   BrowserModule
 } from '@angular/platform-browser';
 import {
@@ -43,8 +46,10 @@ import {
     ModelModule,
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     AdminRoutingModule
   ],
+  exports: [AdminComponent],
   providers: [AuthGuard],
 })
 

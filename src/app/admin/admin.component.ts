@@ -20,8 +20,10 @@ export class AdminComponent implements OnInit {
               private router: Router) { }
 
   logout() {
-    this.auth.clear();
-    this.router.navigateByUrl('/');
+
+    localStorage.removeItem('authJwtToken');
+
+    this.router.navigateByUrl('/admin/auth');
   }
 
   ngOnInit() {

@@ -1,7 +1,18 @@
-import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
-import { AuthService } from '@app/admin/auth/auth.service/auth.service';
+import {
+  Component,
+  OnInit
+} from '@angular/core';
+import {
+  FormBuilder,
+  FormGroup,
+  Validators
+} from '@angular/forms';
+import {
+  Router
+} from '@angular/router';
+import {
+  AuthService
+} from '@app/admin/auth/auth.service/auth.service';
 
 @Component({
   selector: 'app-auth',
@@ -9,29 +20,45 @@ import { AuthService } from '@app/admin/auth/auth.service/auth.service';
   styleUrls: ['./auth.component.scss']
 })
 export class AuthComponent implements OnInit {
-  public username: string;
-  public password: string;
-  public errorMessage: string;
 
-  constructor(private router: Router, private auth: AuthService) { }
-  // constructor(private router: Router) { }
+  form: FormGroup;
 
-  ngOnInit() {
+  constructor(
+    private fb: FormBuilder,
+    private auth: AuthService,
+    private router: Router) {
+
+    this.form = fb.group({
+      email: ['tom@irimescu.com', [Validators.required]],
+      password: ['password', [Validators.required]]
+    });
+
   }
 
-  authenticate(form: NgForm) {
-    if (form.valid) {
-        this.auth.authenticate(this.username, this.password)
-            .subscribe(response => {
-                if (response) {
-                    this.router.navigateByUrl('/admin/dashboard');
-                }
-                this.errorMessage = 'Authentication Failed';
-            });
-    } else {
-        this.errorMessage = 'Form Data Invalid';
-    }
+  ngOnInit() {
+
+  }
+
+  login() {
+
+    const val = this.form.value;
+
+    this.auth.login(val.email, val.password)
+      .subscribe(
+        (reply: any) => {
+
+          localStorage.setItem('authJwtToken',
+            reply.authJwtToken);
+
+          this.router.navigateByUrl('/store');
+
+        },
+        err => {
+          console.log('Login failed:', err);
+          alert('Login failed.');
+        }
+      );
+
   }
 
 }
-
