@@ -8,6 +8,12 @@ import {
   BrowserModule
 } from '@angular/platform-browser';
 import {
+  AuthComponent
+} from '@app/admin/auth/auth.component';
+import {
+  AuthGuard
+} from '@app/admin/auth/authguard/auth.guard';
+import {
   OrderTableComponent
 } from '@app/admin/order.table/order.table.component';
 import {
@@ -30,14 +36,16 @@ import {
     AdminComponent,
     ProductEditorComponent,
     ProductTableComponent,
-    OrderTableComponent
+    OrderTableComponent,
+    AuthComponent
   ],
   imports: [
     ModelModule,
     BrowserModule,
     FormsModule,
     AdminRoutingModule
-  ]
+  ],
+  providers: [AuthGuard],
 })
 
 export class AdminModule { }

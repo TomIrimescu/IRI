@@ -1,0 +1,43 @@
+<div class="flex justify-center pt-8 pb-8">
+  <h3>SportsStore Admin</h3>
+</div>
+<div class="flex justify-center text-red" *ngIf="errorMessage != null">
+  {{ errorMessage }}
+</div>
+<div class="flex justify-center">
+  <form novalidate #form="ngForm" (ngSubmit)="authenticate(form)">
+    <div class="pt-4">
+      <label>Name: admin</label>
+      <input
+        class="border-solid border border-gray-600 flex justify-center"
+        name="username"
+        [(ngModel)]="username"
+        required
+      />
+    </div>
+    <div class="pt-4">
+      <label>Password: secret</label>
+      <input
+        class="border-solid border border-gray-600 flex justify-center"
+        type="password"
+        name="password"
+        [(ngModel)]="password"
+        required
+      />
+    </div>
+    <div class="">
+      <button
+        class="mt-12 group flex justify-center px-2 py-2 bg-blue text-xl leading-5 text-red-lighter rounded-md hover:text-gray-200 hover:bg-red-dark focus:outline-none focus:text-gray-200 focus:bg-blue transition ease-in-out duration-150 w-2/3 mx-auto"
+        routerLink="/"
+      >
+        Go back</button
+      ><br />
+      <button
+        class="mt-12 group flex justify-center px-2 py-2 bg-blue text-xl leading-5 text-red-lighter rounded-md hover:text-gray-200 hover:bg-red-dark focus:outline-none focus:text-gray-200 focus:bg-blue transition ease-in-out duration-150 w-2/3 mx-auto"
+        type="submit"
+      >
+        Log In
+      </button>
+    </div>
+  </form>
+</div>

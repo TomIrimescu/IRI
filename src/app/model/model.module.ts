@@ -9,6 +9,9 @@ import {
 } from '@app/model/product.repository';
 
 import {
+  AuthService
+} from '@app/admin/auth/auth.service/auth.service';
+import {
   RestDataSource
 } from './rest.datasource';
 
@@ -16,7 +19,8 @@ import {
   imports: [HttpClientModule],
   providers: [
     ProductRepository,
-    RestDataSource
+    RestDataSource,
+    AuthService
   ]
 })
 export class ModelModule { }

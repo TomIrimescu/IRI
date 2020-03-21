@@ -1,17 +1,23 @@
 <h5 class="pb-8">Admin Template</h5>
 <ul class="pb-8">
   <li>
-    <a routerLink="products/:mode" routerLinkActive="active"
-      >Product Editor Component</a
+    <button routerLink="/admin/dashboard/products"
+      routerLinkActive="active"
+      >Products</button
     >
   </li>
   <li>
-    <a routerLink="products" routerLinkActive="active"
-      >Product Table Component</a
+    <button routerLink="/admin/dashboard/orders"
+      routerLinkActive="active"
+      >Orders</button
     >
   </li>
   <li>
-    <a routerLink="orders" routerLinkActive="active">Order Table Component</a>
+    <button routerLink="orders"
+      routerLinkActive="active"
+      (click)="logout()"
+      >Logout</button
+    >
   </li>
 </ul>
 <router-outlet></router-outlet>

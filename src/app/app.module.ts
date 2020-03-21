@@ -5,6 +5,9 @@ import {
   NgModule
 } from '@angular/core';
 import {
+  FormsModule
+} from '@angular/forms';
+import {
   BrowserModule,
   Title
 } from '@angular/platform-browser';
@@ -27,6 +30,7 @@ import {
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     HttpClientModule,
     StoreModule,

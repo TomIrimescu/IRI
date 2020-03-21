@@ -6,6 +6,9 @@ import {
   Routes
 } from '@angular/router';
 import {
+  AuthComponent
+} from '@app/admin/auth/auth.component';
+import {
   OrderTableComponent
 } from '@app/admin/order.table/order.table.component';
 import {
@@ -19,10 +22,10 @@ import {
 } from './admin.component';
 
 const routes: Routes = [
-  // {
-  //   path: 'auth', component: AuthComponent,
-  //   data: { title: 'Log In' }
-  // },
+  {
+    path: 'auth', component: AuthComponent,
+    data: { title: 'Log In' }
+  },
   {
     path: 'dashboard', component: AdminComponent,
     children: [
@@ -47,9 +50,9 @@ const routes: Routes = [
       }
     ]
   },
-  // {
-  //   path: '**', redirectTo: 'auth'
-  // }
+  {
+    path: '**', redirectTo: 'auth'
+  }
 ];
 
 @NgModule({
