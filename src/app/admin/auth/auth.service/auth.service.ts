@@ -5,37 +5,26 @@ import {
   Injectable
 } from '@angular/core';
 import {
-  RestDataSource
-} from '@app/model/rest.datasource';
+  User
+} from '@app/models/user/user.model';
 import {
   Observable
 } from 'rxjs';
-// import {User} from "./model/user.model";
 
+const PROTOCOL = 'http';
+const PORT = 3000;
 
 @Injectable()
 export class AuthService {
+  baseUrl: string;
+  authToken: string;
 
-  constructor(private datasource: RestDataSource, private http: HttpClient) { }
-
-  authenticate(username: string, password: string): Observable<boolean> {
-    return this.datasource.authenticate(username, password);
+  constructor(private http: HttpClient) {
+    this.baseUrl = `${PROTOCOL}://${location.hostname}:${PORT}/api/`;
   }
 
-  get authenticated(): boolean {
-    return this.datasource.authToken != null;
-  }
-
-  clear() {
-    this.datasource.authToken = null;
-  }
-
-  // login(email: string, password: string): Observable<User> {
-  //   return this.http.post<User>('/api/login', { email, password });
-  // }
-
-  login(email: string, password: string): Observable<any> {
-    return this.http.post('/api/login', { email, password });
+  login(email: string, password: string): Observable<User> {
+    return this.http.post<User>(this.baseUrl + 'login', { email, password });
   }
 
 }

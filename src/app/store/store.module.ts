@@ -12,7 +12,7 @@ import {
 } from '@angular/router';
 import {
   ModelModule
-} from '@app/model/model.module';
+} from '@app/models/model.module';
 import {
   CartDetailComponent
 } from '@app/store/cart.detail/cart.detail.component';

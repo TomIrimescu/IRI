@@ -1,4 +1,5 @@
 import {
+  HTTP_INTERCEPTORS,
   HttpClientModule
 } from '@angular/common/http';
 import {
@@ -14,6 +15,9 @@ import {
 import {
   AdminModule
 } from '@app/admin/admin.module';
+import {
+  AuthInterceptor
+} from '@app/admin/auth/auth.interceptor/auth.interceptor';
 import {
   AppRoutingModule
 } from '@app/app-routing.module';
@@ -37,7 +41,12 @@ import {
     AdminModule
   ],
   providers: [
-    Title
+    Title,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    },
   ],
   bootstrap: [
     AppComponent

@@ -3,10 +3,10 @@ import {
 } from '@angular/core';
 import {
   Product
-} from '@app/model/product/product.model';
+} from '@app/models/product/product.model';
 import {
   RestDataSource
-} from '@app/model/rest.datasource';
+} from '@app/models/rest.datasource';
 
 @Injectable()
 export class ProductRepository {

@@ -1,4 +1,5 @@
 import {
+  ModuleWithProviders,
   NgModule
 } from '@angular/core';
 import {
@@ -14,8 +15,8 @@ import {
   AuthComponent
 } from '@app/admin/auth/auth.component';
 import {
-  AuthGuard
-} from '@app/admin/auth/authguard/auth.guard';
+  AuthService
+} from '@app/admin/auth/auth.service/auth.service';
 import {
   OrderTableComponent
 } from '@app/admin/order.table/order.table.component';
@@ -27,7 +28,7 @@ import {
 } from '@app/admin/product.table/product.table.component';
 import {
   ModelModule
-} from '@app/model/model.module';
+} from '@app/models/model.module';
 import {
   AdminRoutingModule
 } from './admin-routing.module';
@@ -49,8 +50,16 @@ import {
     ReactiveFormsModule,
     AdminRoutingModule
   ],
-  exports: [AdminComponent],
-  providers: [AuthGuard],
+  exports: [AdminComponent]
 })
 
-export class AdminModule { }
+export class AdminModule {
+  static forRoot(): ModuleWithProviders<AdminModule> {
+    return {
+      ngModule: AdminModule,
+      providers: [
+        AuthService
+      ]
+    };
+  }
+}

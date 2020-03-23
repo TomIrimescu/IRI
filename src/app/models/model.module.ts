@@ -5,12 +5,11 @@ import {
   NgModule
 } from '@angular/core';
 import {
-  ProductRepository
-} from '@app/model/product/product.repository';
-
-import {
   AuthService
 } from '@app/admin/auth/auth.service/auth.service';
+import {
+  ProductRepository
+} from '@app/models/product/product.repository';
 import {
   RestDataSource
 } from './rest.datasource';
