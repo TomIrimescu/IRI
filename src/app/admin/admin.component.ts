@@ -16,8 +16,7 @@ import {
 })
 export class AdminComponent implements OnInit {
 
-  constructor(private auth: AuthService,
-              private router: Router) { }
+  constructor(private router: Router) { }
 
   logout() {
 

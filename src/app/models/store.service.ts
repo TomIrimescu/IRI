@@ -19,7 +19,7 @@ import {
 } from 'rxjs';
 
 @Injectable()
-export class RestDataSource {
+export class StoreService {
   baseUrl: string;
 
   constructor(private http: HttpClient) {

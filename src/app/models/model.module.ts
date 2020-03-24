@@ -11,14 +11,14 @@ import {
   ProductRepository
 } from '@app/models/product/product.repository';
 import {
-  RestDataSource
-} from './rest.datasource';
+  StoreService
+} from './store.service';
 
 @NgModule({
   imports: [HttpClientModule],
   providers: [
     ProductRepository,
-    RestDataSource,
+    StoreService,
     AuthService
   ]
 })

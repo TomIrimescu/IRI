@@ -5,17 +5,17 @@ import {
   Product
 } from '@app/models/product/product.model';
 import {
-  RestDataSource
-} from '@app/models/rest.datasource';
+  StoreService
+} from '@app/models/store.service';
 
 @Injectable()
 export class ProductRepository {
   private products: Product[] = [];
   private categories: string[] = [];
 
-  constructor(private dataSource: RestDataSource) {
+  constructor(private store: StoreService) {
 
-    dataSource.getProducts().subscribe(data => {
+    store.getProducts().subscribe(data => {
       this.products = data;
       // this.categories = data.map(p => p.category)
       //   .filter((c, index, array) => array.indexOf(c) === index).sort();
