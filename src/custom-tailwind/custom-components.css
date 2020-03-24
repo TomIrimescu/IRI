@@ -23,3 +23,10 @@
   @apply text-gray-200;
   @apply bg-blue;
 }
+
+.sideBarButton:disabled {
+  @apply outline-none;
+  @apply text-gray-300;
+  @apply bg-gray-200;
+  @apply cursor-not-allowed;
+}

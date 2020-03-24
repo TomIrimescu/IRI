@@ -17,7 +17,6 @@ import {
 @Injectable()
 export class AuthService {
   baseUrl: string;
-  authToken: string;
 
   constructor(private http: HttpClient) {
     this.baseUrl = `${PROTOCOL}://${location.hostname}:${PORT}/api/`;
