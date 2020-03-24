@@ -1,11 +1,23 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-// import { Order } from './order.model';
-import { Product } from './product/product.model';
+import {
+  HttpClient
+} from '@angular/common/http';
+import {
+  Injectable
+} from '@angular/core';
+import {
+  PORT,
+  PROTOCOL
+} from '@app/models/constants';
+// import {
+//   Order
+// } from './order.model';
+import {
+  Product
+} from '@app/models/product/product.model';
+import {
+  Observable
+} from 'rxjs';
 
-const PROTOCOL = 'http';
-const PORT = 3000;
 @Injectable()
 export class RestDataSource {
   baseUrl: string;

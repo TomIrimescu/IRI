@@ -5,14 +5,14 @@ import {
   Injectable
 } from '@angular/core';
 import {
+  PORT, PROTOCOL
+} from '@app/models/constants';
+import {
   User
 } from '@app/models/user/user.model';
 import {
   Observable
 } from 'rxjs';
-
-const PROTOCOL = 'http';
-const PORT = 3000;
 
 @Injectable()
 export class AuthService {
