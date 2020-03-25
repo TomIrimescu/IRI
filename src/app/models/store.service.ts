@@ -6,6 +6,7 @@ import {
 } from '@angular/core';
 import {
   PORT,
+  PREFIX,
   PROTOCOL
 } from '@app/models/constants';
 // import {
@@ -23,7 +24,7 @@ export class StoreService {
   baseUrl: string;
 
   constructor(private http: HttpClient) {
-    this.baseUrl = `${PROTOCOL}://${location.hostname}:${PORT}/api/`;
+    this.baseUrl = `${PROTOCOL}://${location.hostname}:${PORT}/${PREFIX}/`;
   }
 
   getProducts(): Observable<Product[]> {

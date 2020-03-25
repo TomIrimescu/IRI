@@ -5,7 +5,9 @@ import {
   Injectable
 } from '@angular/core';
 import {
-  PORT, PROTOCOL
+  PORT,
+  PREFIX,
+  PROTOCOL
 } from '@app/models/constants';
 import {
   User
@@ -19,7 +21,7 @@ export class AuthService {
   baseUrl: string;
 
   constructor(private http: HttpClient) {
-    this.baseUrl = `${PROTOCOL}://${location.hostname}:${PORT}/api/`;
+    this.baseUrl = `${PROTOCOL}://${location.hostname}:${PORT}/${PREFIX}/`;
   }
 
   login(email: string, password: string): Observable<User> {
