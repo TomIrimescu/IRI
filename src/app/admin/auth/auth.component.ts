@@ -29,7 +29,7 @@ export class AuthComponent implements OnInit {
     private router: Router) {
 
     this.form = fb.group({
-      email: ['student@angular-university.io', [Validators.required]],
+      email: ['admin@irimescu.com', [Validators.required]],
       password: ['password', [Validators.required]]
     });
 
@@ -47,14 +47,13 @@ export class AuthComponent implements OnInit {
       .subscribe(
         (reply: any) => {
 
-          localStorage.setItem('authJwtToken',
-            reply.authJwtToken);
+          // localStorage.setItem('authJwtToken',
+          //   reply.authJwtToken);
 
           this.router.navigateByUrl('/store');
 
         },
         err => {
-          console.log('Login failed:', err);
           alert('Login failed.');
         }
       );

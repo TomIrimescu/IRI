@@ -28,4 +28,8 @@ export class AuthService {
     return this.http.post<User>(this.baseUrl + 'login', { email, password });
   }
 
+  // login(): Observable<User> {
+  //   return this.http.get<User>(this.baseUrl + 'login');
+  // }
+
 }
