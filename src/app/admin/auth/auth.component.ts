@@ -47,8 +47,8 @@ export class AuthComponent implements OnInit {
       .subscribe(
         (reply: any) => {
 
-          // localStorage.setItem('authJwtToken',
-          //   reply.authJwtToken);
+          localStorage.setItem('authJwtToken',
+            reply.authJwtToken);
 
           this.router.navigateByUrl('/store');
 
