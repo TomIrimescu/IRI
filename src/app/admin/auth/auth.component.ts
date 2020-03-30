@@ -50,7 +50,7 @@ export class AuthComponent implements OnInit {
           localStorage.setItem('authJwtToken',
             reply.authJwtToken);
 
-          this.router.navigateByUrl('/store');
+          this.router.navigateByUrl('/admin/dashboard');
 
         },
         err => {
