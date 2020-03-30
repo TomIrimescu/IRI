@@ -16,9 +16,7 @@ export class AdminComponent implements OnInit {
   constructor(private router: Router) { }
 
   logout() {
-
     localStorage.removeItem('authJwtToken');
-
     this.router.navigateByUrl('/admin/auth');
   }
 

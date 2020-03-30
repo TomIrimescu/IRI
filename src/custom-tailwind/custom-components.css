@@ -30,3 +30,18 @@
   @apply bg-gray-200;
   @apply cursor-not-allowed;
 }
+
+.adminLink {
+  @apply block;
+  @apply px-4;
+  @apply py-2;
+  @apply text-sm;
+  @apply text-center;
+  @apply text-blue-dark;
+  @apply cursor-pointer;
+  transition: ease-in-out duration-150
+}
+
+.adminLink:hover {
+  @apply bg-gray-100
+}

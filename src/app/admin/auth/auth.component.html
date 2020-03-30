@@ -21,19 +21,23 @@
         class="border-solid border border-gray-600 flex justify-center"
       />
     </div>
-    <button
-      routerLink="/"
-      class="sideBarButton w-2/3"
-    >
+    <button routerLink="/" class="sideBarButton w-2/3">
       Back
     </button>
-    <br />
     <button
       (click)="login()"
       [disabled]="!form.valid"
-      class="sideBarButton w-2/3"
+      [ngClass]="!jwtToken ? 'block' : 'hidden'"
+      class="sideBarButton w-2/3 mb-8"
     >
       Login
+    </button>
+    <button
+      (click)="logout()"
+      [ngClass]="jwtToken ? 'block' : 'hidden'"
+      class="sideBarButton w-2/3 mb-8"
+    >
+      Logout
     </button>
   </form>
 </div>

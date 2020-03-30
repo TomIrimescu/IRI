@@ -21,6 +21,7 @@ import {
 })
 export class AuthComponent implements OnInit {
 
+  public jwtToken: any;
   form: FormGroup;
 
   constructor(
@@ -36,7 +37,7 @@ export class AuthComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    this.jwtToken = localStorage.getItem('authJwtToken');
   }
 
   login() {
@@ -58,6 +59,12 @@ export class AuthComponent implements OnInit {
         }
       );
 
+  }
+
+  logout() {
+    localStorage.removeItem('authJwtToken');
+    this.jwtToken = !this.jwtToken;
+    this.router.navigateByUrl('/admin/auth');
   }
 
 }

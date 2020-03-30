@@ -31,28 +31,16 @@
       </div>
       <div class="mt-5 flex-1 h-0 overflow-y-auto">
         <nav class="flex-1 px-2 bg-blue-dark">
-          <a
-            href="#"
-            class="sideBarButton w-2/3"
-          >
+          <a href="#" class="sideBarButton w-2/3">
             Home
           </a>
-          <a
-            href="#"
-            class="sideBarButton w-2/3"
-          >
+          <a href="#" class="sideBarButton w-2/3">
             Category 1
           </a>
-          <a
-            href="#"
-            class="sideBarButton w-2/3"
-          >
+          <a href="#" class="sideBarButton w-2/3">
             Category 2
           </a>
-          <a
-            href="#"
-            class="sideBarButton w-2/3"
-          >
+          <a href="#" class="sideBarButton w-2/3">
             Category 3
           </a>
         </nav>
@@ -65,28 +53,16 @@
     <div class="flex flex-col w-64 bg-blue-dark">
       <div class="mt-5 h-0 flex-1 flex flex-col overflow-y-auto">
         <nav class="flex-1 px-2 bg-blue-dark">
-          <a
-            href="#"
-            class="sideBarButton w-2/3"
-          >
+          <a href="#" class="sideBarButton w-2/3">
             Home
           </a>
-          <a
-            href="#"
-            class="sideBarButton w-2/3"
-          >
+          <a href="#" class="sideBarButton w-2/3">
             Category 1
           </a>
-          <a
-            href="#"
-            class="sideBarButton w-2/3"
-          >
+          <a href="#" class="sideBarButton w-2/3">
             Category 2
           </a>
-          <a
-            href="#"
-            class="sideBarButton w-2/3"
-          >
+          <a href="#" class="sideBarButton w-2/3">
             Category 3
           </a>
         </nav>
@@ -134,7 +110,8 @@
           </div>
         </div>
         <div class="ml-4 flex items-center md:ml-6">
-          <span class="sm:visible md:visible lg:visible invisible text-indigo-lighter"
+          <span
+            class="sm:visible md:visible lg:visible invisible text-indigo-lighter"
             >Your cart: (empty)</span
           >
           <button
@@ -162,11 +139,21 @@
               [ngClass]="links ? 'open' : 'close'"
             >
               <div class="py-1 rounded-md bg-white shadow-xs">
-                <a
-                  routerLink="/admin"
-                  class="block px-4 py-2 text-sm text-blue-dark hover:bg-gray-100 transition ease-in-out duration-150 cursor-pointer"
-                  >Admin</a
-                >
+                <ng-container *ngIf="!jwtToken">
+                  <a routerLink="/admin" class="adminLink">Admin Login</a>
+                </ng-container>
+                <ng-container *ngIf="jwtToken">
+                  <a
+                    (click)="goToDashboard()"
+                    class="adminLink"
+                  >Admin Dashboard</a
+                  >
+                  <a
+                    (click)="logout()"
+                    class="adminLink">
+                    Logout</a
+                  >
+                </ng-container>
               </div>
             </div>
           </div>
