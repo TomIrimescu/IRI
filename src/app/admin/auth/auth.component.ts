@@ -21,6 +21,7 @@ import {
 })
 export class AuthComponent implements OnInit {
 
+  public modal = false;
   public jwtToken: any;
   form: FormGroup;
 
@@ -55,7 +56,7 @@ export class AuthComponent implements OnInit {
 
         },
         err => {
-          alert('Login failed.');
+          this.modalToggleEvent();
         }
       );
 
@@ -65,6 +66,10 @@ export class AuthComponent implements OnInit {
     localStorage.removeItem('authJwtToken');
     this.jwtToken = !this.jwtToken;
     this.router.navigateByUrl('/admin/auth');
+  }
+
+  modalToggleEvent() {
+    this.modal = !this.modal;
   }
 
 }
