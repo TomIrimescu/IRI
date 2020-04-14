@@ -18,6 +18,9 @@ import {
   ProductTableComponent
 } from '@app/admin/product.table/product.table.component';
 import {
+  AuthGuard
+} from '@app/guards/auth.guard';
+import {
   AdminComponent
 } from './admin.component';
 
@@ -27,7 +30,7 @@ const routes: Routes = [
     data: { title: 'Log In' }
   },
   {
-    path: 'dashboard', component: AdminComponent,
+    path: 'dashboard', component: AdminComponent, canActivate: [AuthGuard],
     children: [
       {
         path: 'products/:mode/:id', component: ProductEditorComponent,
@@ -58,5 +61,6 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
+  providers: [AuthGuard]
 })
 export class AdminRoutingModule { }

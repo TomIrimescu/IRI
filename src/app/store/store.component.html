@@ -143,16 +143,11 @@
                   <a routerLink="/admin" class="adminLink">Admin Login</a>
                 </ng-container>
                 <ng-container *ngIf="jwtToken">
-                  <a
-                    (click)="goToDashboard()"
-                    class="adminLink"
-                  >Admin Dashboard</a
+                  <a (click)="goToDashboard()"
+                      class="adminLink"
+                    >Admin Dashboard</a
                   >
-                  <a
-                    (click)="logout()"
-                    class="adminLink">
-                    Logout</a
-                  >
+                  <a (click)="logout()" class="adminLink"> Logout</a>
                 </ng-container>
               </div>
             </div>
@@ -169,23 +164,26 @@
               *ngFor="let product of products"
               class="border rounded-md overflow-hidden p-1 mb-2 bg-gray-100"
             >
-              <div class="flex justify-between align-middle">
-                <h4 class="font-bold">
+              <div class="flex justify-between align-middle bg-gray-200">
+                <h4 class="font-bold px-4 my-2">
                   {{ product.name }}
                 </h4>
                 <button
-                  class="bg-blue-lighter
-                        hover:bg-blue-dark
-                        text-white
-                        font-bold
-                        px-4
-                        rounded-full"
+                  class="bg-blue-dark hover:bg-indigo text-white font-bold px-4 my-2 mr-6 rounded-full"
                 >
                   {{ product.price | currency: "USD":"symbol":"2.2-2" }}
                 </button>
               </div>
-              <div class="flex justify-start bg-white">
-                {{ product.description }}
+              <div class="flex justify-between align-middle">
+                <div class="px-4 py-1 my-2">
+                  {{ product.description }}
+                </div>
+                <button
+                  class="bg-red-dark hover:bg-indigo text-white font-bold px-4 py-1 mr-2 my-2 rounded"
+                  routerLink="/cart"
+                >
+                  Add To Cart
+                </button>
               </div>
             </div>
           </div>
