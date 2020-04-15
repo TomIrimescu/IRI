@@ -116,6 +116,9 @@
           </div>
         </div>
         <div class="ml-4 flex items-center md:ml-6">
+          <div *ngIf="jwtToken" class="text-red-lighter mr-1">
+            Admin Logged In
+          </div>
           <div class="ml-3 relative">
             <div (click)="linksToggleEvent()">
               <button

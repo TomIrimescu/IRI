@@ -83,6 +83,25 @@
   transition: visibility 0s linear 0.5s, opacity 0.5s linear;
 }
 
+.inputBox {
+  @apply border;
+  @apply border-gray-300;
+  @apply rounded-lg;
+  @apply py-2;
+  @apply px-4;
+  @apply block;
+  @apply w-full;
+  @apply appearance-none;
+  @apply leading-normal;
+  @apply flex;
+  @apply mx-auto;
+}
+
+.inputBox:focus {
+  @apply outline-none;
+  @apply shadow-outline;
+}
+
 .backdrop {
   background-color: rgba(0, 0, 0, 0.5);
 }

@@ -1,50 +1,51 @@
-<div class="flex justify-center pt-8 pb-8">
-  <h3>SportsStore Admin</h3>
+<!-- LOGIN MODAL -->
+<div
+  class="fixed top-10 inset-x-0 px-4 pb-6 sm:inset-0 sm:p-0 sm:flex sm:items-center sm:justify-center"
+>
+  <div class="fixed inset-0 transition-opacity">
+    <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+  </div>
+  <div
+    class="bg-white rounded-lg px-4 pt-5 pb-4 overflow-hidden shadow-xl transform transition-all sm:p-6"
+  >
+    <form [formGroup]="form">
+      <div class="pt-4">
+        <label class="flex justify-center font-medium">Email</label>
+        <input
+          type="email"
+          placeholder="Email"
+          formControlName="email"
+          class="inputBox"
+        />
+      </div>
+      <div class="pt-4">
+        <label class="flex justify-center font-medium">Password</label>
+        <input
+          type="password"
+          placeholder="Password"
+          formControlName="password"
+          class="inputBox"
+        />
+      </div>
+      <button
+        (click)="login()"
+        [disabled]="!form.valid"
+        [ngClass]="!jwtToken ? 'block' : 'hidden'"
+        class="sideBarButton w-full mb-8"
+      >
+        Login
+      </button>
+      <button routerLink="/" class="sideBarButton w-full mb-10">
+        Storefront
+      </button>
+    </form>
+  </div>
 </div>
-<div class="flex justify-center">
-  <form [formGroup]="form">
-    <div class="pt-4">
-      <label>Name:</label>
-      <input
-        type="email"
-        placeholder="Email"
-        formControlName="email"
-        class="border-solid border border-gray-600 flex justify-center"
-      />
-    </div>
-    <div class="pt-4">
-      <label>Password:</label>
-      <input
-        type="password"
-        placeholder="Password"
-        formControlName="password"
-        class="border-solid border border-gray-600 flex justify-center"
-      />
-    </div>
-    <button
-      (click)="login()"
-      [disabled]="!form.valid"
-      [ngClass]="!jwtToken ? 'block' : 'hidden'"
-      class="sideBarButton w-2/3 mb-8"
-    >
-      Login
-    </button>
-    <button
-      (click)="logout()"
-      [ngClass]="jwtToken ? 'block' : 'hidden'"
-      class="sideBarButton w-2/3 mb-8"
-    >
-      Logout
-    </button>
-    <button routerLink="/" class="sideBarButton w-2/3">
-      Storefront
-    </button>
-  </form>
-</div>
+
 <!-- LOGIN FAIL MODAL -->
 <div
   [ngClass]="modal ? 'openModal' : 'closeModal'"
-  class="fixed bottom-0 inset-x-0 px-4 pb-6 sm:inset-0 sm:p-0 sm:flex sm:items-center sm:justify-center"
+  class="fixed top-60 inset-x-0 px-4 pb-6 sm:inset-0 sm:p-0 sm:flex sm:items-center sm:justify-center"
 >
   <div class="fixed inset-0 transition-opacity">
     <div
@@ -55,19 +56,10 @@
   <div
     class="bg-white rounded-lg px-4 pt-5 pb-4 overflow-hidden shadow-xl transform transition-all sm:max-w-sm sm:w-full sm:p-6"
   >
-    <div>
-      <div
-        class="mx-auto flex items-center justify-center h-14 w-14 rounded-full bg-red"
-      >
-        <div class="text-white text-base">
-          ouch
-        </div>
-      </div>
-      <div class="mt-3 text-center sm:mt-5">
-        <h3 class="text-lg leading-6 font-medium text-red-lighter">
-          Login Failed
-        </h3>
-      </div>
+    <div class="mt-3 text-center sm:mt-5">
+      <h3 class="text-lg leading-6 font-medium text-red-lighter">
+        Login Failed
+      </h3>
     </div>
     <div class="mt-5 sm:mt-6">
       <span class="flex w-full rounded-md shadow-sm">

@@ -120,6 +120,11 @@
           >
             <i class="fas fa-shopping-cart p-2 pl-2 pr-2"></i>
           </button>
+
+          <div *ngIf="jwtToken" class="text-red-lighter ml-2 mr-1">
+            Admin Logged In
+          </div>
+
           <div class="ml-3 relative">
             <div
               (click)="linksToggleEvent()"
