@@ -31,16 +31,16 @@
       </div>
       <div class="mt-5 flex-1 h-0 overflow-y-auto">
         <nav class="flex-1 px-2 bg-blue-dark">
-          <a href="#" class="sideBarButton w-2/3">
+          <a class="sideBarButton w-2/3" (click)="sideDrawerToggleEvent()">
             Home
           </a>
-          <a href="#" class="sideBarButton w-2/3">
+          <a class="sideBarButton w-2/3" (click)="sideDrawerToggleEvent()">
             Category 1
           </a>
-          <a href="#" class="sideBarButton w-2/3">
+          <a class="sideBarButton w-2/3" (click)="sideDrawerToggleEvent()">
             Category 2
           </a>
-          <a href="#" class="sideBarButton w-2/3">
+          <a class="sideBarButton w-2/3" (click)="sideDrawerToggleEvent()">
             Category 3
           </a>
         </nav>
@@ -53,16 +53,16 @@
     <div class="flex flex-col w-64 bg-blue-dark">
       <div class="mt-5 h-0 flex-1 flex flex-col overflow-y-auto">
         <nav class="flex-1 px-2 bg-blue-dark">
-          <a href="#" class="sideBarButton w-2/3">
+          <a routerLink="/store" class="sideBarButton w-2/3">
             Home
           </a>
-          <a href="#" class="sideBarButton w-2/3">
+          <a class="sideBarButton w-2/3">
             Category 1
           </a>
-          <a href="#" class="sideBarButton w-2/3">
+          <a class="sideBarButton w-2/3">
             Category 2
           </a>
-          <a href="#" class="sideBarButton w-2/3">
+          <a class="sideBarButton w-2/3">
             Category 3
           </a>
         </nav>
@@ -143,8 +143,7 @@
                   <a routerLink="/admin" class="adminLink">Admin Login</a>
                 </ng-container>
                 <ng-container *ngIf="jwtToken">
-                  <a (click)="goToDashboard()"
-                      class="adminLink"
+                  <a (click)="goToDashboard()" class="adminLink"
                     >Admin Dashboard</a
                   >
                   <a (click)="logout()" class="adminLink"> Logout</a>

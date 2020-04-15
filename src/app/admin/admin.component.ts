@@ -13,14 +13,27 @@ import {
 })
 export class AdminComponent implements OnInit {
 
+  public jwtToken: any;
+  public links = false;
+  public sidedrawer = false;
+
   constructor(private router: Router) { }
+
+  ngOnInit() {
+    this.jwtToken = localStorage.getItem('authJwtToken');
+  }
+
+  linksToggleEvent() {
+    this.links = !this.links;
+  }
+
+  sideDrawerToggleEvent() {
+    this.sidedrawer = !this.sidedrawer;
+  }
 
   logout() {
     localStorage.removeItem('authJwtToken');
-    this.router.navigateByUrl('/admin/auth');
-  }
-
-  ngOnInit() {
+    this.router.navigateByUrl('/store');
   }
 
 }

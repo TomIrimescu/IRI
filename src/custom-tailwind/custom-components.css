@@ -10,6 +10,7 @@
   @apply text-red-lighter;
   @apply rounded-md;
   @apply mx-auto;
+  @apply cursor-pointer;
   transition: ease-in-out duration-150
 }
 
