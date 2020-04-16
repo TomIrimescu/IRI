@@ -22,6 +22,7 @@ export class StoreComponent implements OnInit {
   public jwtToken: any;
   public links = false;
   public sidedrawer = false;
+  public loggedInUser: string;
 
   constructor(
     private repository: ProductRepository,
@@ -29,6 +30,7 @@ export class StoreComponent implements OnInit {
 
   ngOnInit() {
     this.jwtToken = localStorage.getItem('authJwtToken');
+    this.loggedInUser = localStorage.getItem('loggedInUser');
   }
 
   get products(): Product[] {
@@ -57,6 +59,7 @@ export class StoreComponent implements OnInit {
 
   logout() {
     localStorage.removeItem('authJwtToken');
+    localStorage.removeItem('loggedInUser');
     this.jwtToken = !this.jwtToken;
   }
 

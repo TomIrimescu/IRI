@@ -16,11 +16,14 @@ export class AdminComponent implements OnInit {
   public jwtToken: any;
   public links = false;
   public sidedrawer = false;
+  public loggedInUser: string;
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router) {}
 
   ngOnInit() {
     this.jwtToken = localStorage.getItem('authJwtToken');
+    this.loggedInUser = localStorage.getItem('loggedInUser');
   }
 
   linksToggleEvent() {
@@ -33,6 +36,7 @@ export class AdminComponent implements OnInit {
 
   logout() {
     localStorage.removeItem('authJwtToken');
+    localStorage.removeItem('loggedInUser');
     this.router.navigateByUrl('/store');
   }
 

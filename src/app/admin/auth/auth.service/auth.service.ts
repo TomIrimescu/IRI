@@ -25,6 +25,7 @@ export class AuthService {
   }
 
   login(email: string, password: string): Observable<User> {
+    localStorage.setItem('loggedInUser', email);
     return this.http.post<User>(this.baseUrl + 'login', { email, password });
   }
 

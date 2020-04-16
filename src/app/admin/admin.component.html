@@ -116,8 +116,8 @@
           </div>
         </div>
         <div class="ml-4 flex items-center md:ml-6">
-          <div *ngIf="jwtToken" class="text-red-lighter mr-1">
-            Admin Logged In
+          <div *ngIf="jwtToken" class="text-red-lighter mr-1 sm:inline-block md:inline-block lg:inline-block hidden">
+            {{this.loggedInUser}}
           </div>
           <div class="ml-3 relative">
             <div (click)="linksToggleEvent()">
@@ -152,6 +152,9 @@
     </div>
     <main class="flex-1 relative z-0 overflow-y-auto py-6 focus:outline-none">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+        <div *ngIf="jwtToken" class="text-red-lighter ml-2 mr-1 text-center -mt-2 sm:hidden md:hidden lg:hidden block">
+          {{this.loggedInUser}}
+        </div>
         <!-- MAIN CONTENT -->
         <div class="py-4">
           <div class="flex-auto p-4">
