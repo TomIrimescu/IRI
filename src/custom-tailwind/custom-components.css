@@ -48,38 +48,38 @@
 }
 
 .openModal {
-  visibility: visible;
-  opacity: 1;
+  @apply visible;
+  @apply opacity-100;
   transition: visibility 0s linear 0.25s, opacity 0.25s linear;
 }
 
 .closeModal {
-  visibility: hidden;
-  opacity: 0;
+  @apply invisible;
+  @apply opacity-0;
   transition: visibility 0s linear 0.5s, opacity 0.5s linear;
 }
 
 .openLinks {
-  visibility: visible;
-  opacity: 1;
+  @apply visible;
+  @apply opacity-100;
   transition: visibility 0s linear 0.25s, opacity 0.25s linear;
 }
 
 .closeLinks {
-  visibility: hidden;
-  opacity: 0;
+  @apply invisible;
+  @apply opacity-0;
   transition: visibility 0s linear 0.5s, opacity 0.5s linear;
 }
 
 .drawerOpen {
-  visibility: visible;
-  opacity: 1;
+  @apply visible;
+  @apply opacity-100;
   transition: visibility 0s linear 0.25s, opacity 0.25s linear;
 }
 
 .drawerClose {
-  visibility: hidden;
-  opacity: 0;
+  @apply invisible;
+  @apply opacity-0;
   transition: visibility 0s linear 0.5s, opacity 0.5s linear;
 }
 
@@ -102,14 +102,14 @@
   @apply shadow-outline;
 }
 
-.backdrop {
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
 @media (min-width: 1024px) {
   .mobileTransition {
-    visibility: hidden;
-    opacity: 0;
+    @apply invisible;
+    @apply opacity-0;
     transition: visibility 0s linear 0.5s, opacity 0.5s linear;
   }
+}
+
+.backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
 }
