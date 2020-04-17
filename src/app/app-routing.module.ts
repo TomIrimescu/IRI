@@ -15,6 +15,9 @@ import {
   CheckoutComponent
 } from '@app/store/checkout/checkout.component';
 import {
+  StoreRouteResolver
+} from '@app/store/store-route.resolver';
+import {
   StoreComponent
 } from '@app/store/store.component';
 
@@ -22,6 +25,7 @@ const routes: Routes = [
   {
     path: 'store', component: StoreComponent,
     canActivate: [StoreGuard],
+    resolve: { message: StoreRouteResolver },
     data: { title: 'IRI Store' }
   },
   {
@@ -49,6 +53,9 @@ const routes: Routes = [
     RouterModule.forRoot(routes)
   ],
   exports: [RouterModule],
-  providers: [StoreGuard]
+  providers: [
+    StoreGuard,
+    StoreRouteResolver
+  ]
 })
 export class AppRoutingModule { }

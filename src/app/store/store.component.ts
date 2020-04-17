@@ -3,11 +3,9 @@ import {
   OnInit
 } from '@angular/core';
 import {
+  ActivatedRoute,
   Router
 } from '@angular/router';
-import {
-  Product
-} from '@app/models/product/product.model';
 import {
   ProductRepository
 } from '@app/models/product/product.repository';
@@ -19,6 +17,7 @@ import {
 })
 export class StoreComponent implements OnInit {
 
+  public products: any;
   public jwtToken: any;
   public links = false;
   public sidedrawer = false;
@@ -26,15 +25,13 @@ export class StoreComponent implements OnInit {
 
   constructor(
     private repository: ProductRepository,
-    private router: Router) { }
+    private router: Router,
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.jwtToken = localStorage.getItem('authJwtToken');
     this.loggedInUser = localStorage.getItem('loggedInUser');
-  }
-
-  get products(): Product[] {
-    return this.repository.getProducts();
+    this.products = this.route.snapshot.data;
   }
 
   get categories(): string[] {
