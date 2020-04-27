@@ -17,7 +17,10 @@ import {
 
 @Component({
   selector: 'app-root',
-  template: '<router-outlet></router-outlet>'
+  template: `
+  <app-crud-test></app-crud-test>
+  <router-outlet></router-outlet>
+  `
 })
 export class AppComponent implements OnInit {
 

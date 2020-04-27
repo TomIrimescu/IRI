@@ -25,31 +25,37 @@ import {
   AppComponent
 } from '@app/app.component';
 import {
+  GraphQLModule
+} from '@app/graphql.module';
+import {
   StoreModule
 } from '@app/store/store.module';
+import { CrudTestComponent } from './crud-test/crud-test.component';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    AppRoutingModule,
-    HttpClientModule,
-    StoreModule,
-    AdminModule
-  ],
-  providers: [
-    Title,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: AuthInterceptor,
-      multi: true,
-    },
-  ],
-  bootstrap: [
-    AppComponent
-  ]
+   declarations: [
+      AppComponent,
+      CrudTestComponent
+   ],
+   imports: [
+      BrowserModule,
+      FormsModule,
+      AppRoutingModule,
+      HttpClientModule,
+      GraphQLModule,
+      StoreModule,
+      AdminModule
+   ],
+   providers: [
+      Title,
+      {
+        provide: HTTP_INTERCEPTORS,
+        useClass: AuthInterceptor,
+        multi: true,
+      },
+   ],
+   bootstrap: [
+      AppComponent
+   ]
 })
 export class AppModule { }
