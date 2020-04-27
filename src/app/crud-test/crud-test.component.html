@@ -1,3 +1,50 @@
-<p>
-  crud-test works!
-</p>
+<form class="mt-20 w-96 ml-4 float-left">
+  <div>
+    <input class="inputBox" type="text" name="name" placeholder="Name" [(ngModel)]="name">
+
+    <input class="inputBox mt-4"  type="text" name="category" placeholder="Category" [(ngModel)]="category">
+
+    <input class="inputBox mt-4"  type="text" name="description" placeholder="Description" [(ngModel)]="description">
+
+    <input class="inputBox mt-4"  type="number" name="price" placeholder="Price" [(ngModel)]="price">
+  </div>
+
+  <button type="button" class="sideBarButton"
+  (click)="createProduct(name, category, description, price);">Create Product</button>
+</form>
+
+<form class="mt-20 w-96 mr-4 float-right">
+  <div>
+    <input class="inputBox" type="text" name="id" placeholder="Id" [(ngModel)]="idUpdate">
+
+    <input class="inputBox  mt-4" type="text" name="name" placeholder="Name" [(ngModel)]="nameUpdate">
+
+    <input class="inputBox mt-4"  type="text" name="category" placeholder="Category" [(ngModel)]="categoryUpdate">
+
+    <input class="inputBox mt-4"  type="text" name="description" placeholder="Description" [(ngModel)]="descriptionUpdate">
+
+    <input class="inputBox mt-4"  type="number" name="price" placeholder="Price" [(ngModel)]="priceUpdate">
+  </div>
+
+  <button type="button" class="sideBarButton"
+  (click)="updateProduct(idUpdate, nameUpdate, categoryUpdate, descriptionUpdate, priceUpdate);">Update Product</button>
+</form>
+
+<table class="mb-20 mt-20">
+  <thead>
+    <tr class="bg-indigo-lighter">
+      <th class="w-2/12">ID</th>
+      <th class="w-2/12">Name</th>
+      <th class="w-2/12">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="text-center" *ngFor="let product of products | async">
+      <td>product id: {{ product.id }}</td>
+      <td>product name: {{ product.name }}</td>
+      <td>
+        <button class="sideBarButton" (click)="deleteProduct(product.id)">DELETE</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

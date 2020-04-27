@@ -20,6 +20,7 @@ import {
 import {
   StoreComponent
 } from '@app/store/store.component';
+import { CrudTestComponent } from './crud-test/crud-test.component';
 
 const routes: Routes = [
   {
@@ -41,6 +42,9 @@ const routes: Routes = [
   {
     path: 'admin',
     loadChildren: () => import('./admin/admin-routing.module').then(m => m.AdminRoutingModule)
+  },
+  {
+    path: 'crud', component: CrudTestComponent
   },
   {
     path: '**', redirectTo: 'store', pathMatch: 'full'

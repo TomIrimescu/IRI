@@ -18,7 +18,6 @@ import {
 @Component({
   selector: 'app-root',
   template: `
-  <app-crud-test></app-crud-test>
   <router-outlet></router-outlet>
   `
 })
