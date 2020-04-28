@@ -28,6 +28,7 @@ export class CrudTestComponent implements OnInit {
   category: any;
   description: any;
   price: any;
+  idUpdate: any;
   nameUpdate: any;
   categoryUpdate: any;
   descriptionUpdate: any;
@@ -68,17 +69,15 @@ export class CrudTestComponent implements OnInit {
   }
 
   updateProduct(
-    idUpdate,
     nameUpdate,
     categoryUpdate,
     descriptionUpdate,
     priceUpdate): Observable<Product> {
-    alert(idUpdate);
+    alert(this.idUpdate);
     return this.apollo
       .mutate({
         mutation: updateProduct,
         variables: {
-          id: idUpdate,
           name: nameUpdate,
           category: categoryUpdate,
           description: descriptionUpdate,
