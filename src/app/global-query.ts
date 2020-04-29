@@ -13,7 +13,7 @@ export const queryProducts = gql`
 `;
 
 export const queryProduct = gql`
-  query product($id: ID!) {
+  query product($id: String!) {
     product(id: $id) {
       name
       category
@@ -50,7 +50,7 @@ export const createProduct = gql`
 
 export const updateProduct = gql`
   mutation updateProduct(
-    $id: ID!
+    $id: String!
     $name: String!
     $category: String!
     $description: String!
@@ -75,7 +75,7 @@ export const updateProduct = gql`
 `;
 
 export const deleteProduct = gql`
-  mutation deleteProduct($id: ID!) {
+  mutation deleteProduct($id: String!) {
     deleteProduct(id: $id) {
       id
     }

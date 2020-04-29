@@ -3,18 +3,41 @@ import {
   OnInit
 } from '@angular/core';
 import {
-  createProduct,
-  deleteProduct,
+  createProduct as Create,
+  deleteProduct as Delete,
+  queryProduct as findOne,
   queryProducts,
-  updateProduct
+  updateProduct as Update
 } from '@app/global-query';
-import { Product } from '@app/types';
-import { Query } from '@app/types';
-import { Apollo } from 'apollo-angular';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import {
+  Apollo
+} from 'apollo-angular';
+import {
+  Observable
+} from 'rxjs';
+import {
+  throwError
+} from 'rxjs';
+import {
+  catchError,
+  map
+} from 'rxjs/operators';
 
 // tslint:disable: object-literal-shorthand
+declare interface QueryProducts {
+  products: Product[];
+}
+
+declare interface QueryProduct {
+  product: Product;
+}
+
+declare interface Product {
+  name: string;
+  category: string;
+  description: string;
+  price: number;
+}
 
 @Component({
   selector: 'app-crud-test',
@@ -24,10 +47,13 @@ import { map } from 'rxjs/operators';
 export class CrudTestComponent implements OnInit {
   products: Observable<Product[]>;
   product: Observable<Product>;
+  tomcat: Observable<Product>;
+
   name: any;
   category: any;
   description: any;
   price: any;
+
   idUpdate: any;
   nameUpdate: any;
   categoryUpdate: any;
@@ -39,17 +65,35 @@ export class CrudTestComponent implements OnInit {
   ngOnInit() {
 
     this.products = this.apollo
-      .watchQuery<Query>({
+      .watchQuery<QueryProducts>({
       query: queryProducts
-    })
+      })
       .valueChanges.pipe(map(result => result.data.products));
+  }
+
+  queryProduct(id): Observable<Product> {
+  return this.tomcat = this.apollo
+          .watchQuery<QueryProduct>({
+          query: findOne,
+          variables: {
+            id
+          },
+          })
+          .valueChanges.pipe(map(result => result.data.product));
+  }
+
+  confirmQueryProduct(id) {
+    this.queryProduct(id)
+    .subscribe(res => {
+      console.log(res);
+    });
   }
 
   createProduct(name, category, description, price): Observable<Product> {
     alert(description);
     return this.apollo
       .mutate({
-        mutation: createProduct,
+        mutation: Create,
         variables: {
           name: name,
           category: category,
@@ -63,8 +107,8 @@ export class CrudTestComponent implements OnInit {
         ]
       })
       .pipe(
-        map(({ data }: any) => data.createProduct)
-        // catchError(handleError)
+        map(({ data }: any) => data.createProduct),
+        catchError(this.handleError)
       );
   }
 
@@ -73,10 +117,10 @@ export class CrudTestComponent implements OnInit {
     categoryUpdate,
     descriptionUpdate,
     priceUpdate): Observable<Product> {
-    alert(this.idUpdate);
+    // alert(this.idUpdate);
     return this.apollo
       .mutate({
-        mutation: updateProduct,
+        mutation: Update,
         variables: {
           name: nameUpdate,
           category: categoryUpdate,
@@ -90,16 +134,15 @@ export class CrudTestComponent implements OnInit {
         ]
       })
       .pipe(
-        map(({ data }: any) => data.updateUser)
-        // catchError(handleError)
+        map(({ data }: any) => data.updateProduct),
+        catchError(this.handleError)
       );
   }
 
   deleteProduct(id: string): Observable<boolean> {
-    alert(id);
     return this.apollo
       .mutate({
-        mutation: deleteProduct,
+        mutation: Delete,
         variables: {
           id
         },
@@ -110,9 +153,38 @@ export class CrudTestComponent implements OnInit {
         ]
       })
       .pipe(
-        map(({ data }: any) => data.deleteProduct)
-        // catchError(handleError)
+        map(({ data }: any) => data.deleteProduct),
+        catchError(this.handleError)
       );
+  }
+
+  confirmDeleteProduct(id) {
+    this.tomcat = null;
+    this.deleteProduct(id)
+      .subscribe(res => {
+        console.log(res);
+    });
+
+  }
+
+  handleError = (err: any) => {
+    if (err.graphQLErrors) {
+      let error = null;
+
+      err.graphQLErrors.forEach((e: any) => {
+        error = {
+          message: e.extensions.exception.errors[0].message,
+          path: e.extensions.exception.errors[0].path,
+          type: e.extensions.exception.errors[0].type,
+          value: e.extensions.exception.errors[0].value
+        };
+      });
+
+      return throwError(error);
+    }
+    if (err.networkError) {
+      return throwError(err);
+    }
   }
 
 }
