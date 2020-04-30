@@ -3,188 +3,60 @@ import {
   OnInit
 } from '@angular/core';
 import {
-  createProduct as Create,
-  deleteProduct as Delete,
-  queryProduct as findOne,
-  queryProducts,
-  updateProduct as Update
-} from '@app/global-query';
+  ProductService
+} from '@app/graphql/services/product.service';
 import {
-  Apollo
-} from 'apollo-angular';
+  IProduct
+} from '@app/models/product/product.model';
 import {
   Observable
 } from 'rxjs';
-import {
-  throwError
-} from 'rxjs';
-import {
-  catchError,
-  map
-} from 'rxjs/operators';
-
-// tslint:disable: object-literal-shorthand
-declare interface QueryProducts {
-  products: Product[];
-}
-
-declare interface QueryProduct {
-  product: Product;
-}
-
-declare interface Product {
-  name: string;
-  category: string;
-  description: string;
-  price: number;
-}
 
 @Component({
   selector: 'app-crud-test',
-  templateUrl: './crud-test.component.html',
-  styleUrls: ['./crud-test.component.scss']
+  templateUrl: './crud-test.component.html'
 })
 export class CrudTestComponent implements OnInit {
-  products: Observable<Product[]>;
-  product: Observable<Product>;
-  tomcat: Observable<Product>;
+  products: Observable<IProduct[]>;
+  product: Observable<IProduct>;
+  productView: Observable<IProduct>;
 
   name: any;
   category: any;
   description: any;
   price: any;
 
-  idUpdate: any;
-  nameUpdate: any;
-  categoryUpdate: any;
-  descriptionUpdate: any;
-  priceUpdate: any;
+  id: any;
+  nameU: any;
+  categoryU: any;
+  descriptionU: any;
+  priceU: any;
 
-  constructor(private apollo: Apollo) { }
+  constructor(private productService: ProductService) { }
 
   ngOnInit() {
-
-    this.products = this.apollo
-      .watchQuery<QueryProducts>({
-      query: queryProducts
-      })
-      .valueChanges.pipe(map(result => result.data.products));
+    this.products = this.productService.queryProducts();
   }
 
-  queryProduct(id): Observable<Product> {
-  return this.tomcat = this.apollo
-          .watchQuery<QueryProduct>({
-          query: findOne,
-          variables: {
-            id
-          },
-          })
-          .valueChanges.pipe(map(result => result.data.product));
+  queryProd(id) {
+    this.productView = this.productService.queryProduct(id);
   }
 
-  confirmQueryProduct(id) {
-    this.queryProduct(id)
-    .subscribe(res => {
-      console.log(res);
-    });
+  createProd(name, category, description, price) {
+    alert(name + ' ' + category + ' ' + description + ' ' + price);
   }
 
-  createProduct(name, category, description, price): Observable<Product> {
-    alert(description);
-    return this.apollo
-      .mutate({
-        mutation: Create,
-        variables: {
-          name: name,
-          category: category,
-          description: description,
-          price: price
-        },
-        refetchQueries: [
-          {
-            query: queryProducts
-          }
-        ]
-      })
-      .pipe(
-        map(({ data }: any) => data.createProduct),
-        catchError(this.handleError)
-      );
+  updateProd(id, nameU, categoryU, descriptionU, priceU) {
+    alert(id + ' ' + nameU + ' ' + categoryU + ' ' + descriptionU + ' ' + priceU);
   }
 
-  updateProduct(
-    nameUpdate,
-    categoryUpdate,
-    descriptionUpdate,
-    priceUpdate): Observable<Product> {
-    // alert(this.idUpdate);
-    return this.apollo
-      .mutate({
-        mutation: Update,
-        variables: {
-          name: nameUpdate,
-          category: categoryUpdate,
-          description: descriptionUpdate,
-          price: priceUpdate
-        },
-        refetchQueries: [
-          {
-            query: queryProducts
-          }
-        ]
-      })
-      .pipe(
-        map(({ data }: any) => data.updateProduct),
-        catchError(this.handleError)
-      );
-  }
-
-  deleteProduct(id: string): Observable<boolean> {
-    return this.apollo
-      .mutate({
-        mutation: Delete,
-        variables: {
-          id
-        },
-        refetchQueries: [
-          {
-            query: queryProducts
-          }
-        ]
-      })
-      .pipe(
-        map(({ data }: any) => data.deleteProduct),
-        catchError(this.handleError)
-      );
-  }
-
-  confirmDeleteProduct(id) {
-    this.tomcat = null;
-    this.deleteProduct(id)
+  deleteProd(id) {
+    this.productView = null;
+    this.productService.deleteProduct(id)
       .subscribe(res => {
         console.log(res);
     });
 
-  }
-
-  handleError = (err: any) => {
-    if (err.graphQLErrors) {
-      let error = null;
-
-      err.graphQLErrors.forEach((e: any) => {
-        error = {
-          message: e.extensions.exception.errors[0].message,
-          path: e.extensions.exception.errors[0].path,
-          type: e.extensions.exception.errors[0].type,
-          value: e.extensions.exception.errors[0].value
-        };
-      });
-
-      return throwError(error);
-    }
-    if (err.networkError) {
-      return throwError(err);
-    }
   }
 
 }

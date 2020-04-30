@@ -32,7 +32,7 @@
   <button
     type="button"
     class="sideBarButton"
-    (click)="createProduct(
+    (click)="createProd(
       name,
       category,
       description,
@@ -48,51 +48,52 @@
       type="text"
       name="id"
       placeholder="Id"
-      [(ngModel)]="idUpdate">
+      [(ngModel)]="id">
 
     <input
       class="inputBox  mt-4"
       type="text"
       name="name"
       placeholder="Name"
-      [(ngModel)]="nameUpdate">
+      [(ngModel)]="nameU">
 
     <input
       class="inputBox mt-4"
       type="text"
       name="category"
       placeholder="Category"
-      [(ngModel)]="categoryUpdate">
+      [(ngModel)]="categoryU">
 
     <input
       class="inputBox mt-4"
       type="text"
       name="description"
       placeholder="Description"
-      [(ngModel)]="descriptionUpdate">
+      [(ngModel)]="descriptionU">
 
     <input
       class="inputBox mt-4"
       type="number"
       name="price"
       placeholder="Price"
-      [(ngModel)]="priceUpdate">
+      [(ngModel)]="priceU">
   </div>
 
   <button
     type="button"
     class="sideBarButton"
-    (click)="updateProduct(
-      nameUpdate,
-      categoryUpdate,
-      descriptionUpdate,
-      priceUpdate);">
+    (click)="updateProd(
+      id,
+      nameU,
+      categoryU,
+      descriptionU,
+      priceU);">
     Update Product
   </button>
 </form>
 
 <table class="w-1/4 mx-auto -mb-13 mt-5 pl-2 bg-indigo-lighter">
-  <tr *ngFor="let prod of tomcat | async">
+  <tr *ngFor="let prod of productView | async">
     <td class="p-6">
       product id: {{ prod.id }} <br>
       product name: {{ prod.name }} <br>
@@ -125,14 +126,14 @@
       <td>
         <button
           class="sideBarButton mb-12"
-          (click)="confirmQueryProduct(product.id)">
+          (click)="queryProd(product.id)">
           SELECT
         </button>
       </td>
       <td>
         <button
           class="sideBarButton mb-12"
-          (click)="confirmDeleteProduct(product.id)">
+          (click)="deleteProd(product.id)">
           DELETE
         </button>
       </td>

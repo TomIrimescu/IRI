@@ -26,7 +26,7 @@ import {
 } from '@app/app.component';
 import {
   GraphQLModule
-} from '@app/graphql.module';
+} from '@app/graphql/graphql.module';
 import {
   StoreModule
 } from '@app/store/store.module';

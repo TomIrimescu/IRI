@@ -15,10 +15,14 @@ import {
 import {
   InMemoryCache
 } from 'apollo-cache-inmemory';
+import {
+  ProductService
+} from './services/product.service';
 
 const uri = 'http://localhost:5000/graphql';
 
 @NgModule({
+  providers: [ProductService],
   exports: [
     HttpClientModule,
     ApolloModule,
