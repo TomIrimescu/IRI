@@ -30,7 +30,7 @@ import {
 import {
   StoreModule
 } from '@app/store/store.module';
-import { CrudTestComponent } from './crud-test/crud-test.component';
+import { CrudTestComponent } from './graphql/crud-test/crud-test.component';
 
 @NgModule({
    declarations: [

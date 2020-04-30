@@ -20,7 +20,7 @@ import {
 import {
   StoreComponent
 } from '@app/store/store.component';
-import { CrudTestComponent } from './crud-test/crud-test.component';
+import { CrudTestComponent } from './graphql/crud-test/crud-test.component';
 
 const routes: Routes = [
   {
