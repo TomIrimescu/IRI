@@ -29,7 +29,7 @@ export const createProduct = gql`
     $name: String!
     $category: String!
     $description: String!
-    $price: Number!
+    $price: Int!
   ) {
     createProduct(
       input: {
@@ -54,7 +54,7 @@ export const updateProduct = gql`
     $name: String!
     $category: String!
     $description: String!
-    $price: String!
+    $price: Int!
   ) {
     updateProduct(
         id: $id

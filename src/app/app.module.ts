@@ -9,6 +9,9 @@ import {
   FormsModule
 } from '@angular/forms';
 import {
+  ReactiveFormsModule
+} from '@angular/forms';
+import {
   BrowserModule,
   Title
 } from '@angular/platform-browser';
@@ -40,6 +43,7 @@ import { CrudTestComponent } from './graphql/crud-test/crud-test.component';
    imports: [
       BrowserModule,
       FormsModule,
+      ReactiveFormsModule,
       AppRoutingModule,
       HttpClientModule,
       GraphQLModule,

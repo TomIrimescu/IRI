@@ -1,99 +1,103 @@
-<form class="mt-20 w-48  ml-4 float-left">
+<form
+  name="createProductForm"
+  class="mt-20 w-48  ml-4 float-left"
+  [formGroup]="createProductForm"
+  (ngSubmit)="submit()"
+  >
   <div>
     <input
       class="inputBox"
+      formControlName="name"
       type="text"
-      name="name"
       placeholder="Name"
-      [(ngModel)]="name">
+      [formControl]="createProductForm.controls.name">
 
     <input
       class="inputBox mt-4"
+      formControlName="category"
       type="text"
-      name="category"
       placeholder="Category"
-      [(ngModel)]="category">
+      [formControl]="createProductForm.controls.category">
 
     <input
       class="inputBox mt-4"
+      formControlName="description"
       type="text"
-      name="description"
       placeholder="Description"
-      [(ngModel)]="description">
+      [formControl]="createProductForm.controls.description">
 
     <input
       class="inputBox mt-4"
+      formControlName="price"
       type="number"
-      name="price"
       placeholder="Price"
-      [(ngModel)]="price">
+      [formControl]="createProductForm.controls.price">
   </div>
 
   <button
-    type="button"
+    type="submit"
+    [disabled]="createProductForm.invalid"
     class="sideBarButton"
-    (click)="createProd(
-      name,
-      category,
-      description,
-      price);">
+    >
     Create Product
   </button>
 </form>
 
-<form class="mt-20 w-48 mr-4 float-right">
+<form
+  #update="ngForm"
+  name="updateProductForm"
+  class="mt-20 w-48 mr-4 float-right"
+  [formGroup]="updateProductForm"
+  (ngSubmit)="onSubmit(update.value.id)">
   <div>
     <input
       class="inputBox"
+      formControlName="id"
       type="text"
-      name="id"
       placeholder="Id"
-      [(ngModel)]="id">
+      [formControl]="updateProductForm.controls.id">
 
     <input
       class="inputBox  mt-4"
+      formControlName="name"
       type="text"
-      name="name"
       placeholder="Name"
-      [(ngModel)]="nameU">
+      [formControl]="updateProductForm.controls.name">
 
     <input
       class="inputBox mt-4"
+      formControlName="category"
       type="text"
-      name="category"
       placeholder="Category"
-      [(ngModel)]="categoryU">
+      [formControl]="updateProductForm.controls.category">
 
     <input
       class="inputBox mt-4"
+      formControlName="description"
       type="text"
-      name="description"
       placeholder="Description"
-      [(ngModel)]="descriptionU">
+      [formControl]="updateProductForm.controls.description">
 
     <input
       class="inputBox mt-4"
+      formControlName="price"
       type="number"
-      name="price"
       placeholder="Price"
-      [(ngModel)]="priceU">
+      [formControl]="updateProductForm.controls.price">
   </div>
 
   <button
-    type="button"
+    type="submit"
+    [disabled]="updateProductForm.invalid"
     class="sideBarButton"
-    (click)="updateProd(
-      id,
-      nameU,
-      categoryU,
-      descriptionU,
-      priceU);">
+    >
     Update Product
   </button>
 </form>
 
-<table class="w-1/4 mx-auto -mb-13 mt-5 pl-2 bg-indigo-lighter">
-  <tr *ngFor="let prod of productView | async">
+<table class="w-1/4 mx-auto -mb-13 mt-5 pl-2 ">
+  <tr *ngFor="let prod of productView | async"
+  class="w-1/4 mx-auto -mb-13 mt-5 pl-2 bg-indigo-lighter">
     <td class="p-6">
       product id: {{ prod.id }} <br>
       product name: {{ prod.name }} <br>
@@ -101,6 +105,14 @@
       product description: {{ prod.description }} <br>
       product price: {{ prod.price }}
     </td>
+  </tr>
+  <tr>
+    <button
+      class="sideBarButton mt-6"
+      (click)="clear()"
+    >
+    Clear All
+  </button>
   </tr>
 </table>
 
@@ -121,7 +133,7 @@
       <td>product id: {{ product.id }}</td>
       <td class="bg-indigo-lighter p-6">product name: {{ product.name }}</td>
       <td class="p-4">product category: {{ product.category }}</td>
-      <td class="bg-indigo-lighter">product description: {{ product.description }}</td>
+      <td class="bg-indigo-lighter p-4">product description: {{ product.description }}</td>
       <td>product price: {{ product.price }}</td>
       <td>
         <button

@@ -34,6 +34,13 @@ declare interface QueryProduct {
   product: IProduct;
 }
 
+export interface ICreateProductContext {
+  name: string;
+  category: string;
+  description: string;
+  price: number;
+}
+
 @Injectable()
 export class ProductService {
   products: Observable<IProduct[]>;
@@ -60,15 +67,16 @@ export class ProductService {
       .valueChanges.pipe(map(result => result.data.product));
   }
 
-  createProduct(name, category, description, price): Observable<IProduct> {
+  createProduct(product: ICreateProductContext): Observable<IProduct> {
     return this.apollo
       .mutate({
         mutation: Create,
         variables: {
-          name: name,
-          category: category,
-          description: description,
-          price: price
+          ...product,
+          name: product.name,
+          category: product.category,
+          description: product.description,
+          price: product.price
         },
         refetchQueries: [
           {
@@ -82,19 +90,17 @@ export class ProductService {
       );
   }
 
-  updateProduct(
-    nameUpdate,
-    categoryUpdate,
-    descriptionUpdate,
-    priceUpdate): Observable<IProduct> {
+  updateProduct(id: string, product: IProduct): Observable<IProduct> {
     return this.apollo
       .mutate({
         mutation: Update,
         variables: {
-          name: nameUpdate,
-          category: categoryUpdate,
-          description: descriptionUpdate,
-          price: priceUpdate
+          ...product,
+          id: id,
+          name: product.name,
+          category: product.category,
+          description: product.description,
+          price: product.price
         },
         refetchQueries: [
           {

@@ -27,7 +27,7 @@
 
 .sideBarButton:disabled {
   @apply outline-none;
-  @apply text-gray-300;
+  @apply text-gray-400;
   @apply bg-gray-200;
   @apply cursor-not-allowed;
 }
