@@ -107,12 +107,26 @@
     </td>
   </tr>
   <tr>
-    <button
-      class="sideBarButton mt-6"
-      (click)="clear()"
-    >
-    Clear All
-  </button>
+    <td class="flex">
+      <button
+        class="sideBarButton mt-6 inline-flex justify-start"
+        (click)="clear()"
+      >
+        Clear All
+      </button>
+      <button
+        class="sideBarButton mt-6 inline-flex justify-end"
+        routerLink="/admin/dashboard"
+      >
+        Admin
+      </button>
+      <button
+        class="sideBarButton mt-6 inline-flex justify-end"
+        routerLink="/store"
+      >
+        Storefront
+    </button>
+    </td>
   </tr>
 </table>
 
