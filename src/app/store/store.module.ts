@@ -10,6 +10,7 @@ import {
 import {
   RouterModule
 } from '@angular/router';
+import { GraphQLModule } from '@app/graphql/graphql.module';
 import {
   ModelModule
 } from '@app/models/model.module';
@@ -35,7 +36,8 @@ import {
     BrowserModule,
     FormsModule,
     RouterModule,
-    ClickOutsideModule
+    ClickOutsideModule,
+    GraphQLModule
   ],
   declarations: [
     StoreComponent,

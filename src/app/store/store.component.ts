@@ -3,12 +3,20 @@ import {
   OnInit
 } from '@angular/core';
 import {
-  ActivatedRoute,
   Router
 } from '@angular/router';
 import {
+  ProductService
+} from '@app/graphql/services/product.service';
+import {
+  IProduct
+} from '@app/models/product/product.model';
+import {
   ProductRepository
 } from '@app/models/product/product.repository';
+import {
+  Observable
+} from 'rxjs';
 
 @Component({
   selector: 'app-store',
@@ -17,21 +25,21 @@ import {
 })
 export class StoreComponent implements OnInit {
 
-  public products: any;
+  products: Observable<IProduct[]>;
   public jwtToken: any;
   public links = false;
   public sidedrawer = false;
   public loggedInUser: string;
 
   constructor(
+    private productService: ProductService,
     private repository: ProductRepository,
-    private router: Router,
-    private route: ActivatedRoute) { }
+    private router: Router) { }
 
   ngOnInit() {
     this.jwtToken = localStorage.getItem('authJwtToken');
     this.loggedInUser = localStorage.getItem('loggedInUser');
-    this.products = this.route.snapshot.data;
+    this.products = this.productService.queryProducts();
   }
 
   get categories(): string[] {
