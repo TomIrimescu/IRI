@@ -27,10 +27,10 @@ export class StoreService {
     this.baseUrl = `${PROTOCOL}://${location.hostname}:${PORT}/${PREFIX}/`;
   }
 
-  getProducts(): Observable<Product[]> {
+  // getProducts(): Observable<Product[]> {
     // return this.http.get<Product[]>('/api/products');
-    return this.http.get<Product[]>(this.baseUrl + 'products');
-  }
+  //   return this.http.get<Product[]>(this.baseUrl + 'products');
+  // }
   // saveOrder(order: Order): Observable<Order> {
   // return this.http.post<Order>(this.baseUrl + 'orders', order);
   // }

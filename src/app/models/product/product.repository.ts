@@ -15,11 +15,11 @@ export class ProductRepository {
 
   constructor(private store: StoreService) {
 
-    store.getProducts().subscribe(data => {
-      this.products = data;
+    // store.getProducts().subscribe(data => {
+    //   this.products = data;
       // this.categories = data.map(p => p.category)
       //   .filter((c, index, array) => array.indexOf(c) === index).sort();
-    });
+    // });
   }
 
   getProducts(): Product[] {
