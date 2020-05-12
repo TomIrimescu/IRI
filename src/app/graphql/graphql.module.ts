@@ -20,6 +20,7 @@ import {
 } from './services/product.service';
 
 const uri = 'http://localhost:5000/graphql';
+// const uri = 'https://iriapi.herokuapp.com/graphql';
 
 @NgModule({
   providers: [ProductService],

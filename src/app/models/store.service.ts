@@ -12,12 +12,12 @@ import {
 // import {
 //   Order
 // } from './order.model';
-import {
-  Product
-} from '@app/models/product/product.model';
-import {
-  Observable
-} from 'rxjs';
+// import {
+//   Product
+// } from '@app/models/product/product.model';
+// import {
+//   Observable
+// } from 'rxjs';
 
 @Injectable()
 export class StoreService {
@@ -25,6 +25,7 @@ export class StoreService {
 
   constructor(private http: HttpClient) {
     this.baseUrl = `${PROTOCOL}://${location.hostname}:${PORT}/${PREFIX}/`;
+    // this.baseUrl = `https://iriapi.herokuapp.com/api/`;
   }
 
   // getProducts(): Observable<Product[]> {

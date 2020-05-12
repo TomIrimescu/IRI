@@ -22,6 +22,7 @@ export class AuthService {
 
   constructor(private http: HttpClient) {
     this.baseUrl = `${PROTOCOL}://${location.hostname}:${PORT}/${PREFIX}/`;
+    // this.baseUrl = `https://iriapi.herokuapp.com/api/`;
   }
 
   login(email: string, password: string): Observable<User> {
