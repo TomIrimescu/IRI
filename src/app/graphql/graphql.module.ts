@@ -16,11 +16,13 @@ import {
   InMemoryCache
 } from 'apollo-cache-inmemory';
 import {
+  environment
+} from 'environments/environment';
+import {
   ProductService
 } from './services/product.service';
 
-const uri = 'http://localhost:5000/graphql';
-// const uri = 'https://iriapi.herokuapp.com/graphql';
+const uri = `${environment.SERVER_URL}/graphql`;
 
 @NgModule({
   providers: [ProductService],

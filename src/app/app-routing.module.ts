@@ -40,7 +40,8 @@ const routes: Routes = [
     loadChildren: () => import('./admin/admin-routing.module').then(m => m.AdminRoutingModule)
   },
   {
-    path: 'crud', component: CrudTestComponent
+    path: 'crud', component: CrudTestComponent,
+    data: { title: 'IRI CRUD' }
   },
   {
     path: '**', redirectTo: 'store', pathMatch: 'full'
