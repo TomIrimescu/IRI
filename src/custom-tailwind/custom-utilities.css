@@ -10,3 +10,30 @@
 .rotate-270 {
   transform: rotate(270deg);
 }
+
+.loader:empty {
+  position: absolute;
+  top: calc(50% - 4em);
+  left: calc(50% - 4em);
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 20px solid #3f51b5;
+  border-right: 20px solid #b60f6f;
+  border-bottom: 20px solid #1a237e;
+  border-left: 20px solid #ec4079;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
